@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DCS FC Guide — Flaming Cliffs Reference</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0c0f;
+      --panel: #0e1218;
+      --card: #111620;
+      --border: rgba(255,255,255,0.06);
+      --border2: rgba(255,255,255,0.12);
+      --dim: rgba(255,255,255,0.3);
+      --mid: rgba(255,255,255,0.6);
+      --main: rgba(255,255,255,0.92);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--main);
+      font-family: 'Barlow', sans-serif;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: '';
+      position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+      pointer-events: none; z-index: 9999;
+    }
+    a { text-decoration: none; color: inherit; }
+
+    /* HEADER */
+    .header {
+      border-bottom: 1px solid var(--border);
+      padding: 36px 48px 32px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.025) 0%, transparent 100%);
+    }
+    .header-inner { max-width: 1100px; margin: 0 auto; }
+    .header-tag {
+      display: inline-flex; align-items: center; gap: 10px;
+      margin-bottom: 12px;
+    }
+    .badge {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 0.15em;
+      color: var(--dim);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 3px 10px; border-radius: 3px;
+    }
+    .badge-sep { color: rgba(255,255,255,0.12); font-size: 12px; }
+    h1 {
+      font-family: 'Bebas Neue', cursive;
+      font-size: clamp(52px, 8vw, 88px);
+      line-height: 0.88; letter-spacing: 0.02em;
+      color: rgba(255,255,255,0.95);
+    }
+    h1 span { color: rgba(255,255,255,0.22); }
+    .header-sub {
+      margin-top: 18px;
+      color: rgba(255,255,255,0.4);
+      font-size: 15px; max-width: 520px; line-height: 1.65;
+    }
+
+    /* GRID */
+    .grid-section { max-width: 1100px; margin: 52px auto; padding: 0 48px; }
+    .aircraft-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+
+    /* CARD */
+    .aircraft-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      cursor: pointer;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      position: relative; overflow: hidden;
+      display: block;
+      animation: slideUp 0.5s ease both;
+    }
+    .aircraft-card:hover {
+      transform: translateY(-4px);
+    }
+    .card-glow {
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at top left, var(--c-glow) 0%, transparent 60%);
+      opacity: 0; transition: opacity 0.3s ease;
+    }
+    .aircraft-card:hover .card-glow { opacity: 1; }
+    .card-tag {
+      position: absolute; top: 20px; right: 20px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em;
+      padding: 2px 9px; border-radius: 3px;
+      border: 1px solid; opacity: 0.85;
+    }
+    .card-icon { font-size: 44px; margin-bottom: 16px; line-height: 1; }
+    .card-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 30px; letter-spacing: 0.03em; line-height: 1;
+      color: rgba(255,255,255,0.95); margin-bottom: 4px;
+    }
+    .card-meta {
+      display: flex; align-items: center; gap: 8px;
+      margin-bottom: 16px;
+    }
+    .card-nation {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 0.08em;
+    }
+    .card-sep { color: rgba(255,255,255,0.12); font-size: 11px; }
+    .card-role { font-size: 12px; color: rgba(255,255,255,0.38); }
+    .card-desc {
+      font-size: 13px; color: rgba(255,255,255,0.48);
+      line-height: 1.65; margin-bottom: 22px;
+    }
+
+    /* STATS */
+    .stats { border-top: 1px solid var(--border); padding-top: 18px; }
+    .stat { margin-bottom: 8px; }
+    .stat-row { display: flex; justify-content: space-between; margin-bottom: 3px; }
+    .stat-label { font-family: 'Share Tech Mono', monospace; font-size: 10px; letter-spacing: 0.06em; color: rgba(255,255,255,0.3); }
+    .stat-val { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.25); }
+    .stat-track { height: 3px; background: rgba(255,255,255,0.05); border-radius: 99px; }
+    .stat-fill { height: 3px; border-radius: 99px; transition: width 0.8s ease; }
+
+    /* CTA */
+    .card-cta {
+      margin-top: 18px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 0.06em;
+      display: flex; align-items: center; gap: 6px;
+      opacity: 0.7; transition: opacity 0.2s;
+    }
+    .aircraft-card:hover .card-cta { opacity: 1; }
+
+    /* FOOTER */
+    .footer {
+      max-width: 1100px; margin: 0 auto 48px; padding: 24px 48px 0;
+      border-top: 1px solid rgba(255,255,255,0.04);
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    }
+    .footer span {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 10px; letter-spacing: 0.1em; color: rgba(255,255,255,0.12);
+    }
+
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(24px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="header-tag">
+      <span class="badge">DCS WORLD</span>
+      <span class="badge-sep">·</span>
+      <span class="badge">FLAMING CLIFFS</span>
+    </div>
+    <h1>AIRCRAFT<br><span>REFERENCE</span></h1>
+    <p class="header-sub">
+      Guia completo de armamentos, hotkeys e briefings para as aeronaves Flaming Cliffs do DCS World.
+      Selecione uma aeronave para começar.
+    </p>
+  </div>
+</header>
+
+<div class="grid-section">
+  <div class="aircraft-grid" id="aircraft-grid"></div>
+</div>
+
+<footer class="footer">
+  <span>DCS WORLD — DIGITAL COMBAT SIMULATOR</span>
+  <span>FLAMING CLIFFS 2024 · EAGLE DYNAMICS</span>
+</footer>
+
+<script src="data.js"></script>
+<script>
+  const AIRCRAFT_LIST = [
+    {
+      ...DCS_DATA.f15c,
+      icon: '🦅',
+      stats: [
+        { label: 'AR-AR', value: 10 },
+        { label: 'AR-TERRA', value: 0 },
+        { label: 'COMPLEXIDADE FC', value: 4 },
+      ],
+      desc: 'O caça de superioridade aérea mais letal do Ocidente. Mais de 100 vitórias ar-ar sem uma única perda em combate real.',
+      href: 'f15c.html',
+    },
+    {
+      ...DCS_DATA.su27,
+      icon: '⚡',
+      stats: [
+        { label: 'AR-AR', value: 9 },
+        { label: 'AR-TERRA', value: 2 },
+        { label: 'COMPLEXIDADE FC', value: 5 },
+      ],
+      desc: 'O rival do Eagle. IRST passivo, capacete HMS e R-73 que permite atirar para onde você olha.',
+      href: 'su27.html',
+    },
+    {
+      ...DCS_DATA.su25t,
+      icon: '🐸',
+      stats: [
+        { label: 'AR-AR', value: 2 },
+        { label: 'AR-TERRA', value: 10 },
+        { label: 'COMPLEXIDADE FC', value: 5 },
+      ],
+      desc: 'O tanque voador. Sistema Shkval para ataques de precisão cirúrgica. Melhor escola de CAS do DCS — e de graça.',
+      href: 'su25t.html',
+    },
+  ]
+
+  const grid = document.getElementById('aircraft-grid')
+
+  AIRCRAFT_LIST.forEach((ac, i) => {
+    const col = ac.color
+    const glow = col + '18'
+    const border = col + '45'
+
+    const card = document.createElement('a')
+    card.href = ac.href
+    card.className = 'aircraft-card'
+    card.style.animationDelay = `${i * 0.12}s`
+    card.style.setProperty('--c-glow', glow)
+
+    card.innerHTML = `
+      <div class="card-glow"></div>
+      <div class="card-tag" style="color:${col};border-color:${col}40">${ac.tag}</div>
+      <div class="card-icon">${ac.icon}</div>
+      <div class="card-name">${ac.name}</div>
+      <div class="card-meta">
+        <span class="card-nation" style="color:${col}">${ac.flag} ${ac.nation}</span>
+        <span class="card-sep">·</span>
+        <span class="card-role">${ac.role}</span>
+      </div>
+      <p class="card-desc">${ac.desc}</p>
+      <div class="stats">
+        ${ac.stats.map(s => `
+          <div class="stat">
+            <div class="stat-row">
+              <span class="stat-label">${s.label}</span>
+              <span class="stat-val">${s.value}/10</span>
+            </div>
+            <div class="stat-track">
+              <div class="stat-fill" style="width:${s.value * 10}%;background:${col};box-shadow:0 0 6px ${col}"></div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+      <div class="card-cta" style="color:${col}">
+        VER FICHA COMPLETA <span>→</span>
+      </div>
+    `
+
+    card.addEventListener('mouseenter', () => {
+      card.style.borderColor = border
+      card.style.boxShadow = `0 16px 48px ${glow}`
+    })
+    card.addEventListener('mouseleave', () => {
+      card.style.borderColor = 'rgba(255,255,255,0.06)'
+      card.style.boxShadow = 'none'
+    })
+
+    grid.appendChild(card)
+  })
+</script>
+</body>
+</html>

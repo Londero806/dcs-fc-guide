@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title id="page-title">DCS FC Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Share+Tech+Mono&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #0a0c0f; --panel: #0e1218; --card: #111620;
+      --border: rgba(255,255,255,0.06); --dim: rgba(255,255,255,0.3);
+      --mid: rgba(255,255,255,0.6); --main: rgba(255,255,255,0.92);
+      --c: #4a9eff; --cg: rgba(74,158,255,0.1); --cb: rgba(74,158,255,0.3);
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg); color: var(--main);
+      font-family: 'Barlow', sans-serif;
+      min-height: 100vh; -webkit-font-smoothing: antialiased;
+    }
+    body::before {
+      content: ''; position: fixed; inset: 0;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.025) 2px, rgba(0,0,0,0.025) 4px);
+      pointer-events: none; z-index: 9999;
+    }
+    a { text-decoration: none; color: inherit; }
+    button { cursor: pointer; font-family: 'Barlow', sans-serif; }
+
+    /* NAV */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      border-bottom: 1px solid var(--cb);
+      background: rgba(10,12,15,0.92);
+      backdrop-filter: blur(16px);
+      padding: 0 48px;
+    }
+    .nav-inner {
+      max-width: 1100px; margin: 0 auto;
+      display: flex; align-items: center;
+      justify-content: space-between; gap: 16px;
+      height: 68px; flex-wrap: wrap;
+    }
+    .nav-left { display: flex; align-items: center; gap: 20px; }
+    .back-btn {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 0.1em; color: var(--dim);
+      border: 1px solid rgba(255,255,255,0.08); padding: 5px 12px;
+      border-radius: 3px; background: transparent;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .back-btn:hover { color: var(--mid); border-color: rgba(255,255,255,0.2); }
+    .nav-info { display: flex; flex-direction: column; gap: 2px; }
+    .nav-era {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 9px; letter-spacing: 0.15em; color: var(--c);
+    }
+    .nav-name {
+      font-family: 'Bebas Neue', cursive;
+      font-size: 28px; letter-spacing: 0.03em; line-height: 1;
+      color: rgba(255,255,255,0.95);
+    }
+    .tab-group { display: flex; gap: 4px; }
+    .tab-btn {
+      background: transparent;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.35);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 0.08em;
+      padding: 6px 16px; border-radius: 4px;
+      transition: all 0.15s; display: flex; align-items: center; gap: 6px;
+    }
+    .tab-btn.active {
+      background: var(--cg); border-color: var(--cb); color: var(--c);
+    }
+    .tab-btn:hover:not(.active) { color: var(--mid); border-color: rgba(255,255,255,0.15); }
+
+    /* CONTENT */
+    .content { max-width: 1100px; margin: 0 auto; padding: 40px 48px 64px; }
+
+    /* PANELS */
+    .panel { display: none; animation: fadeIn 0.25s ease; }
+    .panel.active { display: block; }
+
+    /* BRIEFING */
+    .stats-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px; margin-bottom: 32px;
+    }
+    .stat-box {
+      background: var(--card);
+      border: 1px solid var(--border); border-radius: 8px; padding: 14px 18px;
+    }
+    .stat-box-label {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      letter-spacing: 0.12em; color: var(--dim); margin-bottom: 6px;
+    }
+    .stat-box-val { font-size: 13px; font-weight: 500; color: var(--mid); }
+    .briefing-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+    }
+    @media (max-width: 700px) { .briefing-grid { grid-template-columns: 1fr; } }
+    .briefing-card {
+      background: var(--card); border-radius: 10px; padding: 26px;
+      position: relative; overflow: hidden;
+    }
+    .briefing-card.accent { border: 1px solid var(--cb); }
+    .briefing-card.plain { border: 1px solid var(--border); }
+    .briefing-topline {
+      position: absolute; top: 0; left: 0; right: 0; height: 2px;
+    }
+    .briefing-label {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      letter-spacing: 0.15em; margin-bottom: 14px;
+    }
+    .briefing-text {
+      font-size: 13.5px; color: rgba(255,255,255,0.58);
+      line-height: 1.78; white-space: pre-line;
+    }
+
+    /* CAT TABS */
+    .cat-tabs { display: flex; gap: 6px; margin-bottom: 22px; flex-wrap: wrap; }
+    .cat-tab {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.38);
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; letter-spacing: 0.06em;
+      padding: 5px 14px; border-radius: 4px;
+      transition: all 0.15s; display: flex; align-items: center; gap: 5px;
+    }
+    .cat-tab.active {
+      background: var(--cg); border-color: var(--cb); color: var(--c);
+    }
+    .cat-tab:hover:not(.active) { color: var(--mid); }
+
+    /* WEAPONS */
+    .weapons-list { display: flex; flex-direction: column; gap: 12px; }
+    .weapon-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 10px; padding: 20px 24px;
+      display: flex; gap: 20px; align-items: flex-start;
+      animation: slideUp 0.3s ease both;
+    }
+    .weapon-card.main { border-color: var(--cb); background: linear-gradient(135deg, var(--card), var(--cg)); }
+    .weapon-body { flex: 1; }
+    .weapon-header { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; margin-bottom: 6px; }
+    .weapon-name { font-family: 'Bebas Neue', cursive; font-size: 22px; letter-spacing: 0.04em; color: rgba(255,255,255,0.95); }
+    .weapon-sub { font-size: 12px; color: rgba(255,255,255,0.32); }
+    .badge-main {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      padding: 1px 6px; border-radius: 3px; letter-spacing: 0.1em;
+      border: 1px solid; color: var(--c); border-color: var(--c);
+    }
+    .badge-ff {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      padding: 1px 6px; border-radius: 3px; letter-spacing: 0.1em;
+      border: 1px solid rgba(74,255,122,0.4); color: #4aff7a;
+    }
+    .weapon-desc { font-size: 13px; color: rgba(255,255,255,0.5); line-height: 1.6; }
+    .weapon-meta { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; min-width: 110px; }
+    .weapon-meta-item {}
+    .weapon-meta-label {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      letter-spacing: 0.1em; color: rgba(255,255,255,0.22); margin-bottom: 2px;
+    }
+    .weapon-meta-val { font-size: 12px; color: rgba(255,255,255,0.55); }
+
+    /* HOTKEYS */
+    .hotkey-list { display: flex; flex-direction: column; gap: 7px; }
+    .hotkey-item {
+      background: var(--card); border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 7px; padding: 13px 18px;
+      display: flex; align-items: center; gap: 16px;
+      animation: slideUp 0.25s ease both;
+    }
+    .hotkey-item.essential {
+      background: linear-gradient(90deg, var(--cg), var(--card));
+      border-color: var(--cb);
+      border-left: 3px solid var(--c);
+    }
+    .keys-wrap { display: flex; gap: 3px; align-items: center; min-width: 155px; flex-wrap: wrap; flex-shrink: 0; }
+    .key-chip {
+      display: inline-block; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.13);
+      border-bottom: 2px solid rgba(255,255,255,0.05);
+      border-radius: 4px; padding: 2px 8px;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px; white-space: nowrap; letter-spacing: 0.02em;
+    }
+    .key-plus { font-family: 'Share Tech Mono', monospace; font-size: 10px; color: rgba(255,255,255,0.2); margin: 0 1px; }
+    .hotkey-body { flex: 1; }
+    .hotkey-action { font-size: 14px; font-weight: 500; color: rgba(255,255,255,0.85); display: flex; align-items: center; gap: 7px; }
+    .essential-badge {
+      font-family: 'Share Tech Mono', monospace; font-size: 9px;
+      color: var(--c); border: 1px solid var(--c);
+      padding: 1px 5px; border-radius: 3px; letter-spacing: 0.08em;
+    }
+    .hotkey-desc { font-size: 12px; color: rgba(255,255,255,0.32); margin-top: 2px; line-height: 1.4; }
+
+    /* ANIMATIONS */
+    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+    @keyframes slideUp { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: translateY(0); } }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .nav { padding: 0 20px; }
+      .content { padding: 28px 20px 48px; }
+      .tab-btn { font-size: 10px; padding: 5px 10px; }
+      .weapon-card { flex-direction: column; }
+      .weapon-meta { flex-direction: row; min-width: unset; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-left">
+      <button class="back-btn" onclick="location.href='index.html'">← HANGAR</button>
+      <div class="nav-info">
+        <div class="nav-era" id="nav-era"></div>
+        <div class="nav-name" id="nav-name"></div>
+      </div>
+    </div>
+    <div class="tab-group" id="tab-group">
+      <button class="tab-btn active" data-panel="briefing" onclick="switchTab('briefing')">📋 BRIEFING</button>
+      <button class="tab-btn" data-panel="weapons" onclick="switchTab('weapons')">💥 ARMAMENTOS</button>
+      <button class="tab-btn" data-panel="hotkeys" onclick="switchTab('hotkeys')">⌨️ HOTKEYS</button>
+    </div>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- BRIEFING PANEL -->
+  <div class="panel active" id="panel-briefing">
+    <div class="stats-grid" id="stats-grid"></div>
+    <div class="briefing-grid" id="briefing-grid"></div>
+  </div>
+
+  <!-- WEAPONS PANEL -->
+  <div class="panel" id="panel-weapons">
+    <div class="cat-tabs" id="weapon-cats"></div>
+    <div class="weapons-list" id="weapons-list"></div>
+  </div>
+
+  <!-- HOTKEYS PANEL -->
+  <div class="panel" id="panel-hotkeys">
+    <div class="cat-tabs" id="hotkey-cats"></div>
+    <div class="hotkey-list" id="hotkey-list"></div>
+  </div>
+
+</div>
+
+<script src="data.js"></script>
+<script>
+  // ── Identifica o avião pelo nome do arquivo ──
+  const path = location.pathname.split('/').pop().replace('.html','')
+  const ac = DCS_DATA[path]
+  if (!ac) { document.body.innerHTML = '<p style="color:#ff4a4a;padding:40px;font-family:monospace">Aircraft not found: ' + path + '</p>'; throw 0 }
+
+  // Aplica cor do avião via CSS vars
+  const col = ac.color
+  const cg = col + '18'
+  const cb = col + '40'
+  document.documentElement.style.setProperty('--c', col)
+  document.documentElement.style.setProperty('--cg', cg)
+  document.documentElement.style.setProperty('--cb', cb)
+
+  // Meta
+  document.getElementById('page-title').textContent = ac.name + ' — DCS FC Guide'
+  document.getElementById('nav-era').textContent = ac.nation + ' · ' + ac.era
+  document.getElementById('nav-name').textContent = ac.name
+
+  // ── BRIEFING ──
+  const statsGrid = document.getElementById('stats-grid')
+  const statsData = [
+    { label: 'FUNÇÃO', val: ac.role },
+    { label: 'VELOCIDADE MÁX', val: ac.speed },
+    { label: 'MOTOR', val: ac.engine },
+    { label: 'ERA', val: ac.era },
+  ]
+  statsData.forEach(s => {
+    statsGrid.innerHTML += `
+      <div class="stat-box">
+        <div class="stat-box-label">${s.label}</div>
+        <div class="stat-box-val">${s.val}</div>
+      </div>`
+  })
+
+  const bGrid = document.getElementById('briefing-grid')
+  bGrid.innerHTML = `
+    <div class="briefing-card accent">
+      <div class="briefing-topline" style="background:linear-gradient(90deg,transparent,${col},transparent)"></div>
+      <div class="briefing-label" style="color:${col}">BRIEFING — MUNDO REAL</div>
+      <p class="briefing-text">${ac.briefing_real}</p>
+    </div>
+    <div class="briefing-card plain">
+      <div class="briefing-topline" style="background:linear-gradient(90deg,transparent,rgba(255,255,255,0.15),transparent)"></div>
+      <div class="briefing-label" style="color:rgba(255,255,255,0.3)">COMO USAR NO DCS</div>
+      <p class="briefing-text">${ac.briefing_dcs}</p>
+    </div>`
+
+  // ── WEAPONS ──
+  const weaponCats = [...new Set(ac.weapons.map(w => w.cat))]
+  let activeWeaponCat = weaponCats[0]
+
+  function renderWeaponCats() {
+    const el = document.getElementById('weapon-cats')
+    el.innerHTML = weaponCats.map(cat => `
+      <button class="cat-tab ${cat === activeWeaponCat ? 'active' : ''}"
+        onclick="setWeaponCat('${cat}')">${cat}</button>
+    `).join('')
+  }
+
+  function renderWeapons() {
+    const el = document.getElementById('weapons-list')
+    const filtered = ac.weapons.filter(w => w.cat === activeWeaponCat)
+    el.innerHTML = filtered.map((w, i) => `
+      <div class="weapon-card ${w.main ? 'main' : ''}" style="animation-delay:${i*0.05}s">
+        <div class="weapon-body">
+          <div class="weapon-header">
+            <span class="weapon-name">${w.name}</span>
+            ${w.sub ? `<span class="weapon-sub">${w.sub}</span>` : ''}
+            ${w.main ? `<span class="badge-main">PRINCIPAL</span>` : ''}
+            ${w.ff ? `<span class="badge-ff">FOGO E ESQUEÇA</span>` : ''}
+          </div>
+          <p class="weapon-desc">${w.desc}</p>
+        </div>
+        <div class="weapon-meta">
+          ${w.guidance && w.guidance !== '—' ? `
+            <div class="weapon-meta-item">
+              <div class="weapon-meta-label">GUIA</div>
+              <div class="weapon-meta-val">${w.guidance}</div>
+            </div>` : ''}
+          ${w.range && w.range !== '—' ? `
+            <div class="weapon-meta-item">
+              <div class="weapon-meta-label">ALCANCE</div>
+              <div class="weapon-meta-val">${w.range}</div>
+            </div>` : ''}
+        </div>
+      </div>
+    `).join('')
+  }
+
+  window.setWeaponCat = function(cat) {
+    activeWeaponCat = cat
+    renderWeaponCats()
+    renderWeapons()
+  }
+
+  renderWeaponCats()
+  renderWeapons()
+
+  // ── HOTKEYS ──
+  const hotkeyCats = [...new Set(ac.hotkeys.map(h => h.cat))]
+  const hotkeyCatMeta = {}
+  ac.hotkeys.forEach(h => { if (!hotkeyCatMeta[h.cat]) hotkeyCatMeta[h.cat] = { label: h.catLabel, icon: h.catIcon } })
+  let activeHotkeyCat = hotkeyCats[0]
+
+  function renderHotkeyCats() {
+    const el = document.getElementById('hotkey-cats')
+    el.innerHTML = hotkeyCats.map(cat => `
+      <button class="cat-tab ${cat === activeHotkeyCat ? 'active' : ''}"
+        onclick="setHotkeyCat('${cat}')">
+        ${hotkeyCatMeta[cat].icon} ${hotkeyCatMeta[cat].label}
+      </button>
+    `).join('')
+  }
+
+  function renderHotkeys() {
+    const el = document.getElementById('hotkey-list')
+    const filtered = ac.hotkeys.filter(h => h.cat === activeHotkeyCat)
+    el.innerHTML = filtered.map((hk, i) => {
+      const parts = hk.keys.split('+').map(k => k.trim())
+      const keysHtml = parts.map((k, ki) =>
+        `<span class="key-chip" style="color:${hk.essential ? col : 'rgba(255,255,255,0.7)'}">${k}</span>` +
+        (ki < parts.length - 1 ? `<span class="key-plus">+</span>` : '')
+      ).join('')
+      return `
+        <div class="hotkey-item ${hk.essential ? 'essential' : ''}" style="animation-delay:${i*0.04}s">
+          <div class="keys-wrap">${keysHtml}</div>
+          <div class="hotkey-body">
+            <div class="hotkey-action">
+              ${hk.action}
+              ${hk.essential ? `<span class="essential-badge">ESSENCIAL</span>` : ''}
+            </div>
+            ${hk.desc ? `<div class="hotkey-desc">${hk.desc}</div>` : ''}
+          </div>
+        </div>`
+    }).join('')
+  }
+
+  window.setHotkeyCat = function(cat) {
+    activeHotkeyCat = cat
+    renderHotkeyCats()
+    renderHotkeys()
+  }
+
+  renderHotkeyCats()
+  renderHotkeys()
+
+  // ── TAB SWITCH ──
+  window.switchTab = function(tab) {
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'))
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'))
+    document.getElementById('panel-' + tab).classList.add('active')
+    document.querySelector(`[data-panel="${tab}"]`).classList.add('active')
+  }
+</script>
+</body>
+</html>
