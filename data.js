@@ -442,4 +442,268 @@ Para armamento completo com Hellfires, rockets e GAU-19, instale o Armed Black H
       { cat: 'radio', catLabel: 'R\u00e1dio / Miss\u00e3o', catIcon: '\uD83D\uDCFB', keys: 'F1\u2013F12', action: 'Sele\u00e7\u00e3o de Op\u00e7\u00f5es de R\u00e1dio', desc: 'Navega pelas op\u00e7\u00f5es do menu de comunica\u00e7\u00f5es.', essential: false },
     ]
   }
+  ,
+
+  f14b: {
+    id: `f14b`,
+    name: `F-14B Tomcat`,
+    nation: `EUA / US Navy`,
+    flag: `🇺🇸`,
+    role: `Interceptor / Caca Multifuncao Naval`,
+    era: `Guerra Fria / Moderno (1974–2006)`,
+    speed: `Mach 2.34 (~2.485 km/h)`,
+    engine: `2x GE F110-GE-400 (27.000 lbf com afterburner)`,
+    color: `#f5a623`,
+    tag: `MODULO PAGO`,
+    briefing_real: `O Grumman F-14 Tomcat é um dos caças mais icônicos da história da aviação naval — e provavelmente o mais reconhecível do mundo graças ao filme Top Gun (1986). Com suas asas de geometria variável que se adaptam automaticamente à velocidade do voo, o Tomcat combina a velocidade de um interceptor com a agilidade de um dogfighter.
+
+Desenvolvido na década de 1960 para defender a frota naval americana contra formações de bombardeiros soviéticos, o sistema AN/AWG-9 combinado com o AIM-54 Phoenix permitia engajar até 6 alvos simultaneamente a mais de 150 km — algo sem precedentes na época.
+
+O F-14B serviu na Marinha Americana de 1987 até a aposentadoria em 2006. Participou de operações no Golfo Pérsico, Kosovo, Afeganistão e Iraque, onde foi adaptado para ataques ao solo com o pod LANTIRN. Curioso: o Irã ainda opera F-14s até hoje.`,
+    briefing_dcs: `No DCS, o F-14B é desenvolvido pela Heatblur Simulations e é considerado tecnicamente o módulo mais impressionante do jogo — muitos veteranos o colocam acima dos módulos oficiais em qualidade.
+
+O grande diferencial é o sistema biplace: você pode voar como Pilot (frente) ou RIO (Radar Intercept Officer, atrás). Em solo, o RIO é controlado pelo Jester AI — uma IA sofisticada que opera o radar, seleciona mísseis e avisa sobre ameaças. Em multiplayer, um segundo jogador pode ser o RIO.
+
+O AIM-54 Phoenix é a estrela: pode engajar 6 alvos simultâneos a até 150 km. O LANTIRN permite ataques laser-guiados ao solo. Ponto de atenção: o F-14B NÃO tem fly-by-wire — é o último caça americano sem esse sistema, então o piloto sente tudo nas mãos, mas erros podem resultar em flat spin.`,
+    weapons: [
+      { cat: `BVR`, name: `AIM-54A/C Phoenix`, sub: `O missil mais letal do DCS`, guidance: `Radar Ativo (TWS + pitbull)`, range: `~150 km`, main: true, ff: true, desc: `O único míssil capaz de engajar 6 alvos simultaneamente no DCS. O AWG-9 guia os mísseis em TWS até ~16 segundos do impacto, quando o míssil ativa seu próprio radar (pitbull). Carga máxima: 6x Phoenix. Raramente usado em combate real americano, mas devastador no DCS.` },
+      { cat: `BVR`, name: `AIM-7M/MH Sparrow`, sub: `BVR semi-ativo`, guidance: `Radar Semi-ativo`, range: `~45 km`, main: false, ff: false, desc: `Míssil de alcance médio que exige radar travado no alvo até o impacto. Usado como complemento ao Phoenix. Selecione SP/PH no HOTAS e pressione MSL PREP antes do lançamento.` },
+      { cat: `WVR`, name: `AIM-9M/L Sidewinder`, sub: `Dogfight curto alcance`, guidance: `Infravermelho`, range: `~25 km`, main: false, ff: true, desc: `Míssil IR de curto alcance para combate visual. Montado nas ponteiras das asas. Ative SW COOL antes do lançamento para resfriamento do seeker.` },
+      { cat: `Canhao`, name: `M61A1 Vulcan 20mm`, sub: `Canhão interno 675 projeteis`, guidance: `—`, range: `< 1 km`, main: false, ff: false, desc: `Canhão rotativo de 20mm com 675 projéteis (menos que o F-15C). Selecione GUN no HOTAS. Usado em dogfight próximo ou ataques rasantes ao solo.` },
+      { cat: `Guiado AG`, name: `GBU-10 / GBU-12 / GBU-16`, sub: `Paveway laser-guiado`, guidance: `Laser (LANTIRN)`, range: `—`, main: true, ff: false, desc: `Família Paveway de 2.000, 500 e 1.000 lb. Requerem o pod LANTIRN na estação 8B e designação laser do RIO. A GBU-12 de 500 lb é a mais usada pelo equilíbrio entre precisão e carga útil.` },
+      { cat: `Guiado AG`, name: `GBU-24 Paveway III`, sub: `Bomba penetradora 2.000 lb`, guidance: `Laser (LANTIRN)`, range: `—`, main: false, ff: false, desc: `Versão mais avançada com maior ângulo de planagem. Para alvos hardened como bunkers. Requer LANTIRN.` },
+      { cat: `Bombas`, name: `Mk-82 / Mk-83 / Mk-84`, sub: `Bombas proposito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `Família Mk-80 completa. O F-14B pode carregar combinações em racks duplos nas estações de Phoenix (1 GBU ou 2 Mk-82 por trilho).` },
+      { cat: `Pods`, name: `LANTIRN Targeting Pod`, sub: `Pod de designacao laser`, guidance: `—`, range: `—`, main: true, ff: false, desc: `Pod de targeting laser montado na estação 8B (lado direito). Controlado pelo RIO no assento traseiro. Permite designação laser para GBUs e visão noturna IR. Essencial para missões AG.` },
+      { cat: `Pods`, name: `TARPS (Reconhecimento)`, sub: `Pod fotografico tatico`, guidance: `—`, range: `—`, main: false, ff: false, desc: `Tactical Airborne Reconnaissance Pod System. Transforma o F-14 em aeronave de reconhecimento fotográfico. Único no DCS — permite missões ISR.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `Cockpit clicavel`, action: `Cold Start completo`, desc: `O F-14B tem cold start completo via cockpit clicável com procedimentos autênticos. A Heatblur incluiu tutoriais em áudio dentro do jogo. Pressione K para o kneeboard com checklists.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RShift + Home`, action: `Autostart (atalho)`, desc: `Liga o avião automaticamente sem o procedimento completo. Útil para multiplayer rápido.`, essential: false },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `H`, action: `Gancho de apresamento`, desc: `Baixa/recolhe o gancho. Essencial para operações de porta-aviões.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `U`, action: `Dobrar asas`, desc: `Dobra/estende as asas para operações em convés.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende. Recolha imediatamente após a catapulta.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `F`, action: `Flaps`, desc: `Cicla posições. Full flap para abordagem no porta-aviões (~15 unidades AOA).`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio aerodinâmico`, desc: `Abre spoilers. O F-14 NÃO tem FBW — o piloto sente toda a resistência.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / Jester`, catIcon: `📡`, keys: `A`, action: `Menu do Jester AI`, desc: `Abre o menu radial do Jester — seu RIO AI. Use para comandar o radar, selecionar modos de combate e pedir designações. ESSENCIAL para solo.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / Jester`, catIcon: `📡`, keys: `A + (menu) TWS`, action: `Jester: Modo TWS`, desc: `Pelo menu Jester, selecione radar > TWS (Track While Scan). Permite rastrear múltiplos alvos e guiar Phoenix simultaneamente.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / Jester`, catIcon: `📡`, keys: `A + (menu) ACM`, action: `Jester: Modo ACM (dogfight)`, desc: `Pelo menu Jester, selecione ACM para combate próximo. O radar faz varredura vertical automática.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Master Arm (cockpit)`, action: `Master Arm ON`, desc: `Ligue o Master Arm no painel ACM abaixo do HUD. Obrigatório antes de qualquer disparo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `MSL PREP (cockpit)`, action: `Preparar misseis radar`, desc: `Pressione MSL PREP para preparar AIM-7 e AIM-54. Aguarde as janelas brancas nas estações.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `SW COOL (cockpit)`, action: `Resfriar seeker AIM-9`, desc: `Pressione SW COOL para resfriar o seeker IR do AIM-9. Aguarde o tom áudio contínuo.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `HOTAS SP/PH`, action: `Selecionar Sparrow ou Phoenix`, desc: `No manche: posição SP/PH alterna entre AIM-7 e AIM-54. GUN ativa o canhão. Sem hotkey de teclado — é no HOTAS.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Gatilho HOTAS`, action: `Disparar`, desc: `Disparo via gatilho do manche/joystick. Em modo GUN: segundo clique ativa o canhão.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `AN/ALE-39 contra mísseis radar.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra mísseis IR. Lance em rajadas com manobras evasivas.`, essential: true },
+    ],
+  }
+  ,
+
+  f16c: {
+    id: `f16c`,
+    name: `F-16C Viper`,
+    nation: `EUA / USAF`,
+    flag: `🇺🇸`,
+    role: `Caca Multifuncao / SEAD`,
+    era: `Guerra Fria / Moderno (1978–)`,
+    speed: `Mach 2.0 (~2.120 km/h)`,
+    engine: `1x GE F110-GE-129 (29.500 lbf com afterburner)`,
+    color: `#7eceff`,
+    tag: `MODULO PAGO`,
+    briefing_real: `O General Dynamics F-16 Fighting Falcon — apelidado de Viper pelos pilotos — é o caça multifunção mais amplamente operado do mundo, com mais de 4.600 unidades para 25 países. Nasceu de um conceito radical nos anos 1970: um caça leve, barato e extremamente ágil que priorizava o combate visual.
+
+Foi o primeiro caça operacional americano com controles fly-by-wire digitais — o piloto não tem ligação mecânica com as superfícies de voo. O computador de voo interpreta os inputs e mantém a estabilidade, permitindo um design aerodinamicamente instável porém muito mais ágil.
+
+A versão no DCS é o Block 50 com motor GE F110-GE-129 e aviónica CCIP — a versão mais capaz do Viper nos anos 2000. O F-16 é famoso por missões Wild Weasel de SEAD, usando o AGM-88 HARM para destruir sistemas de defesa aérea.`,
+    briefing_dcs: `No DCS, o F-16C é recomendado para quem quer começar no full fidelity por ser ligeiramente menos complexo que o F/A-18C. O cockpit é mais simples e o fluxo de trabalho para armas é mais direto. A comunidade considera o Viper o melhor para SEAD/DEAD com o AGM-88 HARM.
+
+O sistema DED (Data Entry Display) é o coração da aviónica — você navega pelos menus com as teclas ao redor do display para configurar armas, waypoints e sistemas. Com o pod Litening para designação laser e o JHMCS para HMS, o Viper cobre todas as missões modernas.
+
+Ponto forte: é o melhor avião de SEAD do DCS. O AGM-88 em modo HAS (HARM As Sensor) é devastador — detecta, classifica e ataca radares automaticamente. Ponto fraco: sem capacidade de porta-aviões.`,
+    weapons: [
+      { cat: `BVR`, name: `AIM-120B/C AMRAAM`, sub: `Missil BVR principal`, guidance: `Radar Ativo — Fogo e Esqueca`, range: `~105 km`, main: true, ff: true, desc: `Míssil radar ativo — dispara e esquece. Até 6x em combinação com AIM-9. O APG-68 em TWS rastreia 10 alvos simultaneamente para o AMRAAM.` },
+      { cat: `WVR`, name: `AIM-9L/M/P/X Sidewinder`, sub: `Dogfight IR / HOBS (9X)`, guidance: `IR / HOBS com JHMCS`, range: `~18–35 km`, main: false, ff: true, desc: `AIM-9X com JHMCS (Helmet Mounted Sight) para ataques de alto offset — olhe para o inimigo e trave o 9X. Diferencial crucial do Viper.` },
+      { cat: `Canhao`, name: `M61A1 Vulcan 20mm`, sub: `Canhão interno 511 projeteis`, guidance: `—`, range: `< 1 km`, main: false, ff: false, desc: `Canhão rotativo de 20mm com 511 projéteis. ~6.000 tiros/min.` },
+      { cat: `SEAD`, name: `AGM-88C HARM`, sub: `Missil anti-radar supersonico`, guidance: `Anti-Radar (passivo)`, range: `~150 km`, main: true, ff: true, desc: `O melhor SEAD do DCS. Modos: SP (Self Protect via RWR), TOO (Target of Opportunity via HAS), PB (Pre-Briefed com coordenadas). O HTS pod expande dramaticamente a capacidade SEAD.` },
+      { cat: `Guiado AG`, name: `AGM-65D/G/H/K Maverick`, sub: `Missil ar-terra TV/IR/Laser`, guidance: `TV / IR / Laser`, range: `~25 km`, main: false, ff: true, desc: `Família Maverick para ataques precisos. 65D/G: IR. 65H: CCD TV. 65K: laser com ogiva maior. Use o Litening para designar em modo laser.` },
+      { cat: `Guiado AG`, name: `GBU-10 / GBU-12 / GBU-16`, sub: `Paveway laser-guiado`, guidance: `Laser (Litening pod)`, range: `—`, main: true, ff: false, desc: `Família Paveway de 2.000, 500 e 1.000 lb. O Litening no F-16 é controlado pelo piloto via MFD. GBU-12 é a mais usada pela versatilidade.` },
+      { cat: `Guiado AG`, name: `GBU-31/A e GBU-38/B JDAM`, sub: `GPS-guiadas 2.000/500 lb`, guidance: `GPS/INS — Fogo e Esqueca`, range: `~25 km`, main: true, ff: true, desc: `JDAMs todo-clima. Programe as coordenadas no DED e largue. GBU-38 (500 lb) para precisão, GBU-31 (2.000 lb) para poder máximo.` },
+      { cat: `Guiado AG`, name: `AGM-154A/B JSOW`, sub: `Planador GPS longo alcance`, guidance: `GPS/INS`, range: `~130 km`, main: false, ff: true, desc: `Planador guiado lançado de alta altitude fora da zona de ameaça. 154A tem submunições, 154B tem ogiva unitária penetradora.` },
+      { cat: `Bombas`, name: `Mk-82 / Mk-82AIR / Mk-84`, sub: `Bombas proposito geral`, guidance: `Livre + CCIP/CCRP`, range: `—`, main: false, ff: false, desc: `Família Mk-80. Mk-82AIR tem retardador para baixa altitude. Use o modo CCIP do HUD para mira precisa em mergulho.` },
+      { cat: `Bombas`, name: `CBU-87 CEM / CBU-97 SFW`, sub: `Bombas cluster`, guidance: `Livre (Cluster)`, range: `—`, main: false, ff: false, desc: `CBU-87 com submunições combinadas HE+incendiária+HEAT. CBU-97 Sensor Fuzed Weapon com submunições inteligentes que detectam blindados.` },
+      { cat: `Pods`, name: `AN/AAQ-28 Litening II`, sub: `Targeting Pod`, guidance: `—`, range: `—`, main: true, ff: false, desc: `Pod de targeting com câmera IR, TV e laser designador. Operado pelo piloto via MFD. Essencial para GBUs, Maverick laser e buddy-lasing.` },
+      { cat: `Pods`, name: `AN/ASQ-213 HTS`, sub: `HARM Targeting System`, guidance: `—`, range: `—`, main: false, ff: false, desc: `Pod especializado em detectar e classificar radares inimigos para o HARM. Apresenta emissores no HAD (HARM Attack Display).` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `Cockpit clicavel`, action: `Cold Start via cockpit`, desc: `O F-16C tem cold start completo. Leva ~5 minutos. Pressione K para kneeboard com checklists.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RShift + Home`, action: `Autostart`, desc: `Liga automaticamente. Mais rápido para ir direto ao combate.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende. O FBW impede recolhimento abaixo de ~200 kn.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio aerodinâmico`, desc: `Spoilers para redução de velocidade. O F-16 retém muito bem a velocidade — use no final.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `I`, action: `Ligar radar APG-68`, desc: `Ativa o radar. Gerenciado via MFD e OSBs (Option Select Buttons) ao redor da tela — não por hotkeys fixas.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `OSB no MFD (RWS/TWS/SAM)`, action: `Modos de radar via MFD`, desc: `RWS: Range While Search. TWS: Track While Scan para AMRAAM multi-alvo. SAM: Single Target Track. Via OSB na página FCR.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `Enter`, action: `Travar alvo`, desc: `Trava o radar no contato selecionado pelo cursor do MFD.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Master Arm (cockpit)`, action: `Master Arm ON`, desc: `Chave no painel esquerdo. OBRIGATÓRIO antes de qualquer disparo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar armas (SMS)`, desc: `Alterna entre as armas carregadas nas estações ativas do SMS.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space / gatilho HOTAS`, action: `Disparar / Lancar`, desc: `Dispara a arma selecionada. Para bombas CCRP, o avião lança automaticamente quando os parâmetros são atingidos.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Num Ins`, action: `Modo AA`, desc: `Alterna para modo ar-ar.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Num Del`, action: `Modo AG`, desc: `Alterna para modo ar-terra.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar canhao`, desc: `Seleciona o M61A1 como arma ativa.`, essential: false },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `Contra mísseis radar.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra mísseis IR.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `H`, action: `Programa CMDS automatico`, desc: `Ativa programa automático do CMDS — lança chaff e flares em sequência pré-programada.`, essential: false },
+    ],
+  }
+  ,
+
+  fa18c: {
+    id: `fa18c`,
+    name: `F/A-18C Hornet`,
+    nation: `EUA / US Navy`,
+    flag: `🇺🇸`,
+    role: `Caca Multifuncao Naval`,
+    era: `Guerra Fria / Moderno (1983–)`,
+    speed: `Mach 1.8 (~1.915 km/h)`,
+    engine: `2x GE F404-GE-402 (17.750 lbf com afterburner cada)`,
+    color: `#4a9eff`,
+    tag: `MODULO PAGO`,
+    briefing_real: `O McDonnell Douglas F/A-18C Hornet é o único avião do inventário americano a carregar tanto a designação de caça (F) quanto a de ataque (A) — e isso não é simbólico. Foi projetado para ser igualmente letal no ar e contra alvos no solo.
+
+Entrou em serviço em 1983 e batizou fogo em 1986 sobre a Líbia, onde Hornets realizaram tanto missões SEAD quanto ataques convencionais na mesma sortida — algo sem precedente até então. O modelo C do DCS representa um Lote 20 de meados dos anos 2000, com radar APG-73, ATFLIR targeting pod, Link 16 datalink e a suite completa de armas. É o avião com o maior número de tipos de armas no DCS.`,
+    briefing_dcs: `No DCS, o F/A-18C é o módulo mais popular do jogo e o recomendado para a maioria dos iniciantes que querem full fidelity. Faz literalmente tudo: porta-aviões, SEAD com AGM-88, precisão com GBU e JDAM, anti-navio com Harpoon e combate ar-ar com AMRAAM.
+
+O ATFLIR é um dos melhores targeting pods do DCS — longa autonomia, resolução excelente e controle via MFD. O reabastecimento aéreo e carrier ops com ICLS e ACLS são completamente funcionais.
+
+O fluxo de trabalho é via MFDs com OSBs ao redor. Aprenda a página STORES para selecionar armas, TGP para o targeting pod e FCR para o radar. O Hornet é o rei do stand-off attack com o JSOW lançado de alta altitude fora da zona de ameaça.`,
+    weapons: [
+      { cat: `BVR`, name: `AIM-120B/C AMRAAM`, sub: `Missil BVR principal`, guidance: `Radar Ativo — Fogo e Esqueca`, range: `~105 km`, main: true, ff: true, desc: `Até 6x em configuração mista. APG-73 em TWS rastreia múltiplos alvos. Após o lançamento, mude de alvo imediatamente — o AMRAAM guia sozinho.` },
+      { cat: `BVR`, name: `AIM-7M/MH Sparrow`, sub: `BVR semi-ativo`, guidance: `Radar Semi-ativo`, range: `~45 km`, main: false, ff: false, desc: `Complemento ao AMRAAM. Exige radar travado até o impacto. Montado nos flancos da fuselagem (estações 3 e 7).` },
+      { cat: `WVR`, name: `AIM-9M/X Sidewinder`, sub: `Dogfight IR / HOBS (9X)`, guidance: `IR / HOBS com HMS`, range: `~18–35 km`, main: false, ff: true, desc: `AIM-9X com HMS para ataques de alto offset. O Hornet também pode usar o radar em modo ACM para travar no 9M.` },
+      { cat: `Canhao`, name: `M61A1 Vulcan 20mm`, sub: `Canhão no nariz — 578 projeteis`, guidance: `—`, range: `< 1 km`, main: false, ff: false, desc: `Montado no nariz. 578 projéteis. Para combate próximo ou strafing de alvos terrestres leves.` },
+      { cat: `SEAD`, name: `AGM-88C HARM`, sub: `Missil anti-radar`, guidance: `Anti-Radar (passivo)`, range: `~150 km`, main: true, ff: true, desc: `Modos SP (Self Protect via RWR), TOO (Target of Opportunity) e PB (Pre-Briefed). No Hornet você pode usar o HARM com o ADM-141 TALD como isca — combinação única no DCS.` },
+      { cat: `Guiado AG`, name: `AGM-65E/F Maverick`, sub: `Missil ar-terra naval`, guidance: `Laser (65E) / IR (65F)`, range: `~25 km`, main: false, ff: true, desc: `Versões navais do Maverick. 65E: guia laser (requer ATFLIR). 65F: IR seeker de maior abertura, melhor contra navios e alvos quentes.` },
+      { cat: `Guiado AG`, name: `GBU-10 / GBU-12 / GBU-16`, sub: `Paveway laser-guiado`, guidance: `Laser (ATFLIR)`, range: `—`, main: true, ff: false, desc: `GBU-12 é a mais usada. O ATFLIR designa o alvo com laser e a bomba segue. Funciona mesmo sem visada direta (loft delivery).` },
+      { cat: `Guiado AG`, name: `GBU-31/A e GBU-38/B JDAM`, sub: `GPS-guiadas 2.000/500 lb`, guidance: `GPS/INS — Fogo e Esqueca`, range: `~25 km`, main: true, ff: true, desc: `JDAMs todo-clima. O Hornet pode usar o ATFLIR para designar e converter para coordenadas GPS automaticamente.` },
+      { cat: `Guiado AG`, name: `AGM-154A/C JSOW`, sub: `Planador GPS longo alcance`, guidance: `GPS/INS`, range: `~130 km`, main: true, ff: true, desc: `O Hornet é o rei do stand-off attack com o JSOW. Pode carregar 8x JSOW e lançá-los de alta altitude fora da ameaça. 154A tem submunições, 154C tem ogiva unitária.` },
+      { cat: `Guiado AG`, name: `AGM-84D Harpoon`, sub: `Missil anti-navio`, guidance: `Inercial + Radar Ativo`, range: `~130 km`, main: false, ff: true, desc: `Principal míssil anti-navio do DCS. Voa rente ao mar para evitar detecção. Use o modo SEA do radar para designar navios.` },
+      { cat: `Guiado AG`, name: `AGM-84E SLAM / AGM-84H SLAM-ER`, sub: `Missil de cruzeiro longo alcance`, guidance: `GPS + Datalink + IR terminal`, range: `~250 km`, main: false, ff: true, desc: `SLAM-ER (270 km) usa datalink para correção de rota em voo e guia TV no terminal — você vê o que o míssil vê e pode redirecionar. Único no DCS.` },
+      { cat: `Bombas`, name: `Mk-82 / Mk-83 / Mk-84`, sub: `Bombas proposito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `O Hornet pode carregar até 10 Mk-82 em racks múltiplos. Use CCIP ou CCRP no HUD.` },
+      { cat: `Pods`, name: `AN/ASQ-228 ATFLIR`, sub: `Advanced Targeting FLIR Pod`, guidance: `—`, range: `—`, main: true, ff: false, desc: `O melhor targeting pod do DCS. Câmera IR de alta resolução, zoom extremo, laser designador e rastreamento automático. Controlado via MFD. Essencial para qualquer missão AG.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `Cockpit clicavel`, action: `Cold Start via cockpit`, desc: `Cold start completo com procedimentos NATOPS. Eagle Dynamics incluiu tutoriais em áudio. K para kneeboard.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RShift + Home`, action: `Autostart`, desc: `Liga automaticamente. Ideal para multiplayer rápido.`, essential: false },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `H`, action: `Gancho de apresamento`, desc: `Baixa/recolhe o gancho. Essencial para carrier ops.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `U`, action: `Dobrar asas`, desc: `Para operações no convés do porta-aviões.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende. O FBW impede recolhimento abaixo de ~200 kn.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `F`, action: `Flaps`, desc: `Full flap para carrier landing (~15 AOA na final).`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio aerodinâmico`, desc: `Spoilers para redução de velocidade.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `I`, action: `Ligar radar APG-73`, desc: `Ativa o radar. Gerenciado via página FCR nos MFDs.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `OSB no MFD (RWS/TWS/STT)`, action: `Modos de radar via MFD`, desc: `RWS: Range While Search. TWS: Track While Scan para AMRAAM multi-alvo. STT: Single Target Track para Sparrow.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `Enter`, action: `Travar alvo`, desc: `Trava o radar no contato selecionado.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / MFD`, catIcon: `📡`, keys: `; . , /`, action: `Mover cursor do radar/TGP`, desc: `Move o cursor de designação no MFD.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Master Arm (cockpit)`, action: `Master Arm ON`, desc: `Chave no painel central. OBRIGATÓRIO antes de qualquer disparo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar armas (SMS)`, desc: `Alterna entre as armas ativas. A página STORES no MFD mostra o status de cada estação.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space / pickle HOTAS`, action: `Disparar / Lancar`, desc: `Para bombas CCRP, mantenha o pickle pressionado — o avião lança automaticamente.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Num Ins`, action: `Modo AA`, desc: `Alterna para modo ar-ar.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Num Del`, action: `Modo AG`, desc: `Alterna para modo ar-terra.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar canhao`, desc: `Seleciona o M61A1.`, essential: false },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `AN/ALE-47 contra mísseis radar.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `AN/ALE-47 contra mísseis IR.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `H`, action: `Programa CMDS automatico`, desc: `Ativa programa automático do ALE-47.`, essential: false },
+      { cat: `radio`, catLabel: `Radio / Carrier`, catIcon: `📻`, keys: `\``, action: `Menu de radio`, desc: `Acessa comunicações com AWACS, tanker, JTAC e LSO do porta-aviões.`, essential: true },
+    ],
+  }
+  ,
+
+  a10a: {
+    id: `a10a`,
+    name: `A-10A Warthog`,
+    nation: `EUA / USAF`,
+    flag: `🇺🇸`,
+    role: `Ataque ao Solo / CAS`,
+    era: `Guerra Fria / Moderno (1976–)`,
+    speed: `~706 km/h`,
+    engine: `2x GE TF34-GE-100A (9.065 lbf cada)`,
+    color: `#a0c060`,
+    tag: `FLAMING CLIFFS`,
+    briefing_real: `O Fairchild Republic A-10 Thunderbolt II — apelidado de Warthog (javali) — foi projetado com um conceito radical: sobreviver ao fogo terrestre intenso e destruir tanques. A fuselagem é construída ao redor do canhão GAU-8 Avenger, e o piloto fica dentro de uma 'banheira' de titânio de 540 kg que protege contra projéteis de até 23mm.
+
+O A-10 estreou em combate na Operação Tempestade no Deserto (1991), onde destruiu mais de 900 tanques iraquianos. No Afeganistão e Iraque, tornou-se o avião mais requisitado pelas forças terrestres americanas por voar baixo, lento e com precisão perto das tropas amigas. Apesar de múltiplas tentativas de aposentadoria, continua em serviço em 2025.`,
+    briefing_dcs: `No DCS, o A-10A é a versão Flaming Cliffs do Warthog — cockpit simplificado, sem o targeting pod Litening e sem o computador de bombardeio avançado do A-10C. É mais acessível mas também mais limitado.
+
+A experiência mais única é o GAU-8: o avião literalmente desacelera quando você dispara, e o som do BRRRRRT é inconfundível. Os Maverick são sua principal arma guiada — sem laser próprio, você usa a câmera IR do míssil para travar o alvo. É o trampolim natural para o A-10C II.`,
+    weapons: [
+      { cat: `Canhao`, name: `GAU-8/A Avenger 30mm`, sub: `Canhão rotativo 7 canos — 1.174 projeteis`, guidance: `—`, range: `~1.500 m`, main: true, ff: false, desc: `O canhão mais icônico do DCS. Projéteis PGU-14 API de 30mm. O avião desacelera visivelmente ao disparar. ~3.900 tiros/min. Letal contra blindados leves. BRRRRRT.` },
+      { cat: `Guiado AG`, name: `AGM-65D/G Maverick`, sub: `Missil ar-terra IR — fogo e esqueca`, guidance: `Infravermelho — Fogo e Esqueca`, range: `~25 km`, main: true, ff: true, desc: `Principal arma guiada do A-10A. Use a câmera IR para travar o alvo — sem laser próprio, o IR do Maverick faz o trabalho. 65G tem ogiva maior (300 lb) para alvos resistentes. Até 6x por missão.` },
+      { cat: `WVR`, name: `AIM-9M Sidewinder`, sub: `Autodefesa AA`, guidance: `Infravermelho`, range: `~18 km`, main: false, ff: true, desc: `Apenas autodefesa de emergência. Dois AIM-9 nas pontas das asas para helicópteros e aeronaves lentas.` },
+      { cat: `Bombas`, name: `Mk-82 / Mk-82AIR / Mk-84`, sub: `Bombas proposito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `Família Mk-80. Mk-82AIR tem retardador para baixa altitude. Sem CCIP no A-10A — exige mergulho com ângulo calculado manualmente.` },
+      { cat: `Bombas`, name: `Mk-20 Rockeye / CBU-87 CEM`, sub: `Bombas cluster`, guidance: `Livre (Cluster)`, range: `—`, main: false, ff: false, desc: `Rockeye: 247 submunições HEAT antitanque. CBU-87: efeito combinado HE+incendiário+HEAT. Eficazes contra formações de veículos.` },
+      { cat: `Foguetes`, name: `Hydra 70 (LAU-61/68)`, sub: `19x ou 7x foguetes 70mm`, guidance: `Nao guiado`, range: `~4 km`, main: false, ff: false, desc: `Pods de foguetes de 70mm. Alta cadência para supressão de área. Múltiplas ogivas disponíveis.` },
+      { cat: `Pods`, name: `AN/ALQ-131 ECM Pod`, sub: `Pod de guerra eletronica`, guidance: `—`, range: `—`, main: false, ff: false, desc: `Pod de jamming para proteção contra radares de SAMs e AAA guiada. Monte em um dos pylons externos.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RShift + L`, action: `Ligar energia / APU`, desc: `Primeiro passo. Liga os sistemas elétricos.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RAlt + Home`, action: `Ligar motor esquerdo`, desc: `Liga o motor TF34 esquerdo.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RCtrl + Home`, action: `Ligar motor direito`, desc: `Liga o motor TF34 direito.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `W`, action: `Freio de roda`, desc: `Segure para manter o avião parado.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio aerodinâmico`, desc: `Abre spoilers. O A-10 é lento por natureza — use para controlar velocidade em passes de ataque.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar canhao GAU-8`, desc: `Seleciona o GAU-8 para passes rasantes de ataque.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar armas`, desc: `Alterna entre Maverick, bombas, foguetes e canhão.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space`, action: `Disparar`, desc: `Dispara a arma selecionada.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `RAlt + F9`, action: `Auto-travar alvo (Maverick)`, desc: `Trava o seeker do Maverick no alvo mais próximo. Útil para iniciantes sem targeting pod.`, essential: false },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `Contra mísseis radar. O A-10 é um alvo fácil para SAMs — voe baixo e reaja rápido.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra MANPADS e mísseis IR — a maior ameaça ao A-10 em baixa altitude.`, essential: true },
+    ],
+  }
+  ,
+
+  a10c: {
+    id: `a10c`,
+    name: `A-10C II Tank Killer`,
+    nation: `EUA / USAF`,
+    flag: `🇺🇸`,
+    role: `Ataque ao Solo / CAS Avancado`,
+    era: `Moderno (2005–)`,
+    speed: `~706 km/h`,
+    engine: `2x GE TF34-GE-100A (9.065 lbf cada)`,
+    color: `#c8f060`,
+    tag: `MODULO PAGO`,
+    briefing_real: `O A-10C é a versão modernizada do clássico Warthog, com aviónica digital completa que transformou o avião analógico dos anos 1970 em uma plataforma de precisão do século XXI. O programa CCIP da USAF nos anos 2000 adicionou CDUs, MFDs coloridos, datalink SADL, o pod Litening para targeting laser e capacidade de usar JDAMs.
+
+O resultado é um avião que mantém a robustez e o canhão lendário do A-10A, mas agora pode destruir um tanque específico a 8 km com uma GBU-12, coordenar com JTAC em tempo real via Link 16, e usar o Sniper XR pod para identificar alvos a mais de 40 km.`,
+    briefing_dcs: `No DCS, o A-10C II é considerado um dos melhores módulos do jogo. A Eagle Dynamics colaborou com pilotos reais da USAF no desenvolvimento — o nível de detalhe do cockpit e sistemas é incomparável entre módulos de ataque ao solo.
+
+O fluxo de trabalho é via CDU e MFDs coloridos. Aprenda a página DSMS para gerenciar armas, TGP para o targeting pod e EGI para navegação. O Litening pod é controlado pelo piloto e permite designação laser precisa e buddy-lasing. O sistema JTAC/datalink para coordenação direta com forças terrestres torna este o melhor avião de CAS cooperativo do DCS.`,
+    weapons: [
+      { cat: `Canhao`, name: `GAU-8/A Avenger 30mm`, sub: `Canhão rotativo 7 canos — 1.174 projeteis`, guidance: `—`, range: `~1.500 m`, main: true, ff: false, desc: `Idêntico ao A-10A. No A-10C o CCIP do HUD mostra exatamente onde os projéteis vão cair — muito mais preciso.` },
+      { cat: `Guiado AG`, name: `GBU-10 / GBU-12 / GBU-16`, sub: `Paveway laser-guiado`, guidance: `Laser (Litening/Sniper)`, range: `—`, main: true, ff: false, desc: `A combinação mais usada no A-10C. O Litening designa o alvo, a GBU-12 de 500 lb é lançada em CCRP e guia até o ponto laser. Precisão de metros.` },
+      { cat: `Guiado AG`, name: `GBU-31/B e GBU-38/B JDAM`, sub: `GPS-guiadas 2.000/500 lb`, guidance: `GPS/INS — Fogo e Esqueca`, range: `~25 km`, main: false, ff: true, desc: `JDAMs todo-clima. O Litening pode converter alvos designados para coordenadas GPS automaticamente.` },
+      { cat: `Guiado AG`, name: `AGM-65D/G/H/K Maverick`, sub: `Missil ar-terra IR/TV/Laser`, guidance: `IR / CCD / Laser`, range: `~25 km`, main: true, ff: true, desc: `No A-10C a página MAV do DSMS gerencia múltiplos Mavericks. Versão K (laser) + Litening é a configuração mais precisa.` },
+      { cat: `Guiado AG`, name: `AGM-154A/C JSOW`, sub: `Planador GPS longo alcance`, guidance: `GPS/INS`, range: `~130 km`, main: false, ff: true, desc: `O A-10C II pode usar JSOW para ataques de stand-off — capacidade nova vs A-10A. Lance de alta altitude fora da ameaça.` },
+      { cat: `WVR`, name: `AIM-9M/X Sidewinder`, sub: `Autodefesa com HMCS`, guidance: `IR / HOBS (9X com HMCS)`, range: `~18–35 km`, main: false, ff: true, desc: `No A-10C II o HMCS permite usar o AIM-9X com high off-boresight. Mais eficaz que o A-10A contra helicópteros.` },
+      { cat: `Bombas`, name: `Mk-82 / Mk-82AIR / Mk-84`, sub: `Bombas proposito geral + CCIP/CCRP`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `O CCIP do HUD torna as bombas livres muito mais precisas que no A-10A.` },
+      { cat: `Bombas`, name: `CBU-87/97/103/105`, sub: `Cluster e sensor-fused`, guidance: `Livre / IAM (103/105)`, range: `—`, main: false, ff: false, desc: `CBU-103/105 são versões IAM com GPS — mais precisas e com maior alcance de planagem.` },
+      { cat: `Pods`, name: `AN/AAQ-28 Litening II`, sub: `Targeting Pod principal`, guidance: `—`, range: `—`, main: true, ff: false, desc: `O coração do A-10C. Câmera IR + TV + laser designador. Controlado via MFD direito (página TGP). Espere ~90s para estabilizar após ligar.` },
+      { cat: `Pods`, name: `AN/AAQ-33 Sniper XR`, sub: `Targeting Pod avancado`, guidance: `—`, range: `—`, main: false, ff: false, desc: `Zoom extremo — identifica e designa alvos a mais de 40 km. Qualidade de imagem superior ao Litening em longas distâncias.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `Cockpit clicavel`, action: `Cold Start completo`, desc: `Cold start completo com procedimentos USAF reais — ~8-10 minutos. Eagle Dynamics lançou tutoriais em áudio. K para kneeboard.`, essential: true },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `RShift + Home`, action: `Autostart`, desc: `Liga automaticamente. Útil para multiplayer rápido.`, essential: false },
+      { cat: `startup`, catLabel: `Inicializacao`, catIcon: `🔧`, keys: `W`, action: `Freio de roda`, desc: `Segure para manter o avião parado.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio aerodinâmico`, desc: `Para controle de velocidade em passes de ataque.`, essential: false },
+      { cat: `radar`, catLabel: `TGP / DSMS`, catIcon: `📡`, keys: `Litening ON (cockpit)`, action: `Ligar Litening Pod`, desc: `Ligue via switch no painel. Página TGP no MFD direito. Aguarde ~90 segundos para estabilizar.`, essential: true },
+      { cat: `radar`, catLabel: `TGP / DSMS`, catIcon: `📡`, keys: `; . , /`, action: `Mover cursor do TGP`, desc: `Move a câmera do Litening para encontrar e apontar para o alvo.`, essential: true },
+      { cat: `radar`, catLabel: `TGP / DSMS`, catIcon: `📡`, keys: `Enter`, action: `Travar / Ponto de referencia TGP`, desc: `Trava o TGP no alvo ou marca ponto de referência para waypoint.`, essential: true },
+      { cat: `radar`, catLabel: `TGP / DSMS`, catIcon: `📡`, keys: `DSMS (MFD)`, action: `Gerenciar armas via DSMS`, desc: `Página DSMS no MFD esquerdo mostra todas as estações e status. Selecione a arma ativa clicando na estação.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Master Arm (cockpit)`, action: `Master Arm ON`, desc: `Chave no painel direito. OBRIGATÓRIO antes de qualquer disparo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar armas (DSMS)`, desc: `Alterna entre armas ativas no DSMS.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space / pickle HOTAS`, action: `Lancar / Disparar`, desc: `Para CCRP, mantenha o pickle pressionado — o avião lança automaticamente no ponto calculado.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar canhao GAU-8`, desc: `Ativa o GAU-8. Use o CCIP no HUD para mira precisa.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `AN/ALE-47 — ~480 chaff/flares totais.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra MANPADS — a maior ameaça no CAS em baixa altitude.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `H`, action: `Programa CMDS automatico`, desc: `Ativa programa pré-configurado do ALE-47.`, essential: false },
+      { cat: `radio`, catLabel: `Radio / JTAC`, catIcon: `📻`, keys: `\``, action: `Menu de radio / JTAC`, desc: `Acessa comunicações com JTAC, AWACS. O A-10C II tem Link 16 para coordenação em tempo real com forças terrestres.`, essential: true },
+    ],
+  }
 }
