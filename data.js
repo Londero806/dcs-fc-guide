@@ -383,4 +383,63 @@ Atenção: requer download separado do GitHub oficial. Não distribua o mod — 
       { cat: 'radio', catLabel: 'Rádio / Carrier', catIcon: '📻', keys: 'F1–F12', action: 'Opções de Rádio', desc: 'Seleciona opções no menu de rádio — comunicações com AWACS, LSO (Landing Signal Officer), torre e outros.', essential: false },
     ]
   }
+
+,
+
+  uh60l: {
+    id: 'uh60l',
+    name: 'UH-60L Black Hawk',
+    nation: 'EUA / US Army',
+    flag: '\u{1F1FA}\u{1F1F8}',
+    role: 'Transporte / CSAR / Ataque',
+    era: 'Guerra Fria / Moderno (1979\u2013)',
+    speed: '~280 km/h (150 kn)',
+    engine: '2x GE T700-GE-701C (1.890 shp cada)',
+    color: '#00c9a7',
+    tag: 'MOD GRATUITO',
+    briefing_real: `O Sikorsky UH-60 Black Hawk \u00e9 o helic\u00f3ptero utilit\u00e1rio militar mais ic\u00f4nico dos \u00faltimos 50 anos. Entrou em servi\u00e7o em 1979 para substituir o vener\u00e1vel UH-1 Huey, com capacidade de transportar 11 soldados, voar a 280 km/h e sobreviver a impactos de muni\u00e7\u00e3o de 23mm em sistemas cr\u00edticos.
+
+O Black Hawk foi batizado de guerra em Granada (1983), Panam\u00e1 (1989), e tornou-se s\u00edmbolo da Guerra da Som\u00e1lia em 1993 \u2014 o incidente "Black Hawk Down" imortalizou o helic\u00f3ptero pela resili\u00eancia de suas tripula\u00e7\u00f5es. No Afeganist\u00e3o e Iraque foi onipresente: inser\u00e7\u00e3o de tropas, MEDEVAC, CSAR e apoio de fogos.
+
+A variante L (Lima), presente no mod do DCS, \u00e9 a vers\u00e3o mais avan\u00e7ada com os motores T700-GE-701C de maior pot\u00eancia e o ESSS para armas externas. Mais de 4.000 unidades produzidas, operando em 30+ pa\u00edses.`,
+    briefing_dcs: `No DCS, o UH-60L \u00e9 um mod comunit\u00e1rio gratuito desenvolvido por Kinkkujuustovoileipa. Tem cockpit quase totalmente clic\u00e1vel preciso ao modelo Lima de 2009, EFM pr\u00f3prio calibrado com dados de performance reais, e sistemas funcionais incluindo GPS Doppler, ILS, VOR, RWR e o AN/AVS-7 Helmet Mounted Display.
+
+O grande diferencial \u00e9 o AFCS com SAS \u2014 isso torna o Black Hawk um dos helic\u00f3pteros mais f\u00e1ceis de voar no DCS, ideal para iniciantes em rotary-wing. O SAS amorte\u00e7os todos os eixos automaticamente, e o trim FPS mant\u00e9m a posi\u00e7\u00e3o de controle.
+
+Para armamento completo com Hellfires, rockets e GAU-19, instale o Armed Black Hawk mod separado (gratuito, requer o UH-60L base).
+
+\u26a0\ufe0f Instale SEMPRE na pasta Saved Games, nunca na pasta de instala\u00e7\u00e3o do DCS. Baixe em: discord.gg/8erxFUMXZh`,
+    weapons: [
+      { cat: 'Utilit\u00e1rio', name: 'Transporte de Tropas', sub: '11 soldados ou 4.100 kg carga interna', guidance: '\u2014', range: '\u2014', main: true, ff: false, desc: 'Fun\u00e7\u00e3o prim\u00e1ria do UH-60L. Transporta 11 soldados totalmente equipados ou 4.100 kg de carga interna. Em configura\u00e7\u00e3o MEDEVAC carrega 6 macas. Sling load externo de at\u00e9 4.000 kg.' },
+      { cat: 'Utilit\u00e1rio', name: 'CSAR (Combat Search & Rescue)', sub: 'Papel especializado em multiplayer', guidance: '\u2014', range: '\u2014', main: true, ff: false, desc: 'O papel mais recompensador do Black Hawk no DCS multiplayer. Coordena com CAP e SEAD para entrar em LZ quente, resgatar pilotos abatidos e extrair sob fogo. Requer comunica\u00e7\u00e3o constante com o time.' },
+      { cat: 'Door Guns', name: 'M60D / M240H (7.62mm)', sub: 'Metralhadoras laterais', guidance: 'Manual (door gunner)', range: '~800 m', main: false, ff: false, desc: 'Metralhadoras M60D ou M240H nas portas laterais operadas por door gunners. Posi\u00e7\u00e3o pivotante com amplo arco de cobertura no flanco. Usadas para supress\u00e3o em LZ quente.' },
+      { cat: 'Armed BH (Mod)', name: 'GAU-19/B (.50 cal, 3 canos)', sub: 'Metralhadora rotativa no nariz', guidance: 'Manual (piloto)', range: '~1.500 m', main: true, ff: false, desc: 'Metralhadora rotativa de .50 caliber com 3 canos montada no ESSS. Cad\u00eancia de 1.300 tiros/min. Eficaz contra ve\u00edculos leves, tropas e helic\u00f3pteros. Requer Armed Black Hawk mod.' },
+      { cat: 'Armed BH (Mod)', name: 'Hydra 70 (LAU-68 / LAU-61)', sub: '7x ou 19x foguetes 70mm', guidance: 'N\u00e3o guiado', range: '~4 km', main: false, ff: false, desc: 'Pods de foguetes Hydra 70mm no ESSS. Vari\u00e1veis HE, HEAT e WP para supress\u00e3o de \u00e1rea. Requer Armed Black Hawk mod.' },
+      { cat: 'Armed BH (Mod)', name: 'AGM-114 Hellfire', sub: 'M\u00edssil anti-carro laser-guiado', guidance: 'Laser (buddy lase)', range: '~8 km', main: false, ff: false, desc: 'Hellfires no ESSS. Requer designa\u00e7\u00e3o laser externa de JTAC ou outro avi\u00e3o (c\u00f3digo padr\u00e3o 1688) \u2014 o Black Hawk n\u00e3o tem targeting pod pr\u00f3prio. Requer Armed Black Hawk mod.' },
+      { cat: 'Armed BH (Mod)', name: 'AIM-92 Stinger (experimental)', sub: 'M\u00edssil AA MANPADS', guidance: 'Infravermelho', range: '~5 km', main: false, ff: true, desc: 'Capacidade AA experimental. Defesa leve contra helic\u00f3pteros e aeronaves lentas. Requer Armed Black Hawk mod.' },
+    ],
+    hotkeys: [
+      { cat: 'startup', catLabel: 'Inicializa\u00e7\u00e3o', catIcon: '\uD83D\uDD27', keys: 'Cockpit clic\u00e1vel', action: 'Cold Start via cockpit', desc: 'O UH-60L tem cockpit quase totalmente clic\u00e1vel. A inicializa\u00e7\u00e3o completa \u00e9 feita pelos switches f\u00edsicos. Consulte o Quick Reference Guide no Discord do mod ou o kneeboard integrado (K).', essential: true },
+      { cat: 'startup', catLabel: 'Inicializa\u00e7\u00e3o', catIcon: '\uD83D\uDD27', keys: 'RShift + Home', action: 'Ligar Motores (atalho r\u00e1pido)', desc: 'Atalho para ligar ambos os motores GE T700 rapidamente sem o procedimento completo. \u00datil para decolar r\u00e1pido em multiplayer.', essential: false },
+      { cat: 'startup', catLabel: 'Inicializa\u00e7\u00e3o', catIcon: '\uD83D\uDD27', keys: 'RShift + L', action: 'Ligar Sistemas El\u00e9tricos', desc: 'Liga os pain\u00e9is el\u00e9tricos e avi\u00f4nica. Passo inicial antes dos motores.', essential: false },
+      { cat: 'startup', catLabel: 'Inicializa\u00e7\u00e3o', catIcon: '\uD83D\uDD27', keys: 'L', action: 'Luzes de Navega\u00e7\u00e3o / Forma\u00e7\u00e3o', desc: 'Alterna luzes externas \u2014 essencial em miss\u00f5es noturnas e multiplayer.', essential: false },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'PgUp / PgDn', action: 'Coletivo (Altitude)', desc: 'CR\u00cdTICO: PgUp aumenta coletivo (sobe), PgDn diminui (desce). Recomendado usar joystick com eixo dedicado para controle suave.', essential: true },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'Z / X', action: 'Anti-Torque (Pedais)', desc: 'Z gira o nariz para a esquerda, X para a direita. Controla o rotor de cauda. Essencial para hovering est\u00e1vel.', essential: true },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'T', action: 'Trim Apply (FPS System)', desc: 'Aplica trim na posi\u00e7\u00e3o atual dos controles. Solte os controles ap\u00f3s pressionar T \u2014 o helic\u00f3ptero mant\u00e9m a atitude automaticamente.', essential: true },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'LAlt + C', action: 'Centralizar Trim', desc: 'Centraliza o trim. Use quando o helic\u00f3ptero estiver "puxando" para um lado inesperadamente.', essential: false },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'LAlt + 3', action: 'AP Voo Nivelado (panic button)', desc: 'Retorna ao voo nivelado imediatamente. Essencial para iniciantes que perdem controle da atitude.', essential: true },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'LAlt + 1', action: 'AP Altitude Hold', desc: 'Mant\u00e9m altitude atual automaticamente. Libera o piloto para operar sistemas.', essential: false },
+      { cat: 'flight', catLabel: 'Voo B\u00e1sico', catIcon: '\uD83D\uDE81', keys: 'LAlt + 2', action: 'AP Heading Hold', desc: 'Mant\u00e9m o rumo atual. \u00datil em cruzeiro longo e aproxima\u00e7\u00f5es instrumentais.', essential: false },
+      { cat: 'systems', catLabel: 'Sistemas / Nav', catIcon: '\uD83D\uDCE1', keys: 'K', action: 'Kneeboard / Quick Reference', desc: 'Abre o kneeboard com o Quick Reference Guide do mod. LEITURA OBRIGAT\u00d3RIA \u2014 cobre todos os sistemas e procedimentos.', essential: true },
+      { cat: 'systems', catLabel: 'Sistemas / Nav', catIcon: '\uD83D\uDCE1', keys: 'AN/APR-39 (RWR)', action: 'Radar Warning Receiver', desc: 'O mod inclui RWR funcional. Sons e displays alertam sobre ameaças de radar. Reaja imediatamente a qualquer aviso \u2014 o UH-60L \u00e9 vulner\u00e1vel a SAMs.', essential: true },
+      { cat: 'systems', catLabel: 'Sistemas / Nav', catIcon: '\uD83D\uDCE1', keys: 'AN/AVS-7 HMD', action: 'Helmet Mounted Display', desc: 'Display de capacete para opera\u00e7\u00f5es noturnas com NVG. Exibe altitude, velocidade e horizonte artificial sobrepostos. Essencial para CSAR noturno.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '\uD83D\uDCA5', keys: 'Space / Weapon Fire', action: 'Disparar Arma Selecionada', desc: 'Dispara a arma ativa. Para door gunners em multiplayer, o jogador na posi\u00e7\u00e3o controla diretamente.', essential: true },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '\uD83D\uDCA5', keys: 'D', action: 'Ciclar Armas (Armed BH)', desc: 'Alterna entre esta\u00e7\u00f5es de armas do Armed Black Hawk mod.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '\uD83D\uDCA5', keys: 'LCtrl + Space', action: 'Master Arm', desc: 'Liga/desliga a seguran\u00e7a das armas. Deve estar ON para disparar qualquer armamento.', essential: false },
+      { cat: 'cm', catLabel: 'Contram\u00e9didas', catIcon: '\uD83D\uDEE1\uFE0F', keys: 'Insert', action: 'Lan\u00e7ar Chaff', desc: 'Contra m\u00edsseis radar. O UH-60L \u00e9 extremamente vulner\u00e1vel a SAMs \u2014 reaja imediatamente ao aviso do RWR.', essential: true },
+      { cat: 'cm', catLabel: 'Contram\u00e9didas', catIcon: '\uD83D\uDEE1\uFE0F', keys: 'Delete', action: 'Lan\u00e7ar Flares', desc: 'Contra MANPADS e m\u00edsseis IR \u2014 a amea\u00e7a mais comum para helic\u00f3pteros de baixa altitude. Lance em rajadas ao entrar em \u00e1rea de amea\u00e7a.', essential: true },
+      { cat: 'radio', catLabel: 'R\u00e1dio / Miss\u00e3o', catIcon: '\uD83D\uDCFB', keys: '`', action: 'Menu de R\u00e1dio / Comunica\u00e7\u00f5es', desc: 'Acessa comunica\u00e7\u00f5es com JTAC, AWACS e outros pilotos. Em CSAR, coordene com CAP e solicite supress\u00e3o antes de entrar no LZ.', essential: true },
+      { cat: 'radio', catLabel: 'R\u00e1dio / Miss\u00e3o', catIcon: '\uD83D\uDCFB', keys: 'F1\u2013F12', action: 'Sele\u00e7\u00e3o de Op\u00e7\u00f5es de R\u00e1dio', desc: 'Navega pelas op\u00e7\u00f5es do menu de comunica\u00e7\u00f5es.', essential: false },
+    ]
+  }
 }
