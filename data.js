@@ -224,11 +224,13 @@ O Su-25T também pode fazer SEAD com o Kh-58 — destruindo radares SAM de até 
 O maior sucesso da família é o Su-30MKI indiano, que em 2004 durante o exercício Cope India venceu 90% das missões de combate simulado contra F-15C americanos — embora os parâmetros favorecessem os indianos. O modelo brasileiro da família é o MKI, que a FAB cogitou adquirir antes de optar pelo Gripen.
 
 Com mais de 635 unidades produzidas e operado por mais de 13 países incluindo Índia, China, Malásia, Argélia e Venezuela, o Su-30 é hoje o espinha dorsal de várias forças aéreas ao redor do mundo.`,
-    briefing_dcs: `No DCS, o Su-30 é um mod gratuito desenvolvido pela equipe Codename Flanker. É tecnicamente o avião mais completo desta lista — combina ar-ar do Su-33 com ar-terra do Su-25T em uma única aeronave, com cockpit clicável e dois lugares.
+    briefing_dcs: `No DCS, o Su-30 é um mod gratuito desenvolvido pela equipe Codename Flanker. Diferente dos outros aviões desta lista, ele tem cockpit totalmente clicável com UFCP (painel de controle digital frontal) — não é um avião Flaming Cliffs. Ele combina capacidade ar-ar do Su-33 com ar-terra do Su-25T em uma única plataforma, com EFM (Extended Flight Model) próprio que inclui fly-by-wire e vetorização de empuxo.
 
-O mod usa o modelo de voo do Su-33 para ar-ar e o sistema Shkval do Su-25T para ar-terra. Com o DLC CWS (Custom Weapon System, também gratuito) você tem acesso a uma enorme variedade de armas, incluindo o míssil supersônico BrahMos, o R-77M de radar ativo e o Kh-31 anti-radar.
+Com o DLC CWS (Custom Weapon System, também gratuito) você tem acesso a um arsenal enorme: BrahMos, R-77M de radar ativo, Kh-31 anti-radar supersônico e muito mais.
 
-Por ser um mod comunitário e não um módulo oficial, pode parar de funcionar com atualizações do DCS. Requer Su-25T (gratuito) + Su-33 ou Flaming Cliffs instalados. Para multiplayer, o servidor também precisa ter o mod ativo.`,
+⚠️ Pré-requisitos: versões antigas do mod exigiam Su-25T + Su-33 ou FC3. As versões mais recentes (EFM v2.7.98b+) são standalone — apenas o DCS World base é necessário. Verifique no Discord oficial (discord.gg/codename-flanker) qual versão você tem e se precisa de algum módulo adicional.
+
+Por ser um mod comunitário, pode parar de funcionar com atualizações do DCS. Para multiplayer, o servidor também precisa ter o mod ativo.`,
     weapons: [
       // BVR
       { cat: 'BVR', name: 'R-77M (AA-12 Adder)', sub: 'Míssil BVR radar ativo', guidance: 'Radar Ativo — Fogo e Esqueça', range: '~110 km', main: true, ff: true, desc: 'Versão modernizada do R-77 com radar ativo — equivalente ao AIM-120 AMRAAM. Fogo e esqueça: dispare e manobre para o próximo alvo. Grande upgrade em relação ao R-27 do Su-27 original.' },
@@ -256,11 +258,11 @@ Por ser um mod comunitário e não um módulo oficial, pode parar de funcionar c
     ],
     hotkeys: [
       // Inicialização
-      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + L', action: 'Ligar Energia / APU', desc: 'Primeiro passo — liga os sistemas elétricos. Idêntico ao Su-27.', essential: true },
-      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RAlt + Home', action: 'Ligar Motor Esquerdo', desc: 'Liga o motor esquerdo.', essential: true },
-      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RCtrl + Home', action: 'Ligar Motor Direito', desc: 'Liga o motor direito.', essential: true },
-      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'Ctrl + C', action: 'Fechar Canopy', desc: 'Feche antes de taxiar.', essential: false },
-      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'W', action: 'Freio de Roda', desc: 'Segure para manter parado no solo.', essential: false },
+      // Inicialização
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'Cockpit clicável', action: 'Cold Start via UFCP', desc: 'O Su-30 tem cockpit totalmente clicável. A inicialização é feita pelos switches físicos do cockpit, não por hotkeys como nos FC. Consulte o manual no kneeboard (K) ou os tutoriais oficiais no Discord/YouTube do Codename Flanker.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + Home', action: 'Ligar Motores (atalho)', desc: 'Pode funcionar como atalho rápido para ligar ambos os motores em algumas versões. Tente caso o cold start clicável seja muito complexo inicialmente.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + L', action: 'Ligar Sistemas Elétricos', desc: 'Atalho para ligar energia — pode funcionar como alternativa ao cockpit clicável em algumas versões.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'W', action: 'Freio de Roda', desc: 'Segure para manter o avião parado no solo durante o startup.', essential: false },
       { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RAlt + R', action: 'Ejetar Tanques Externos', desc: 'Descarte antes do combate para maximizar performance.', essential: false },
       // Voo
       { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'G', action: 'Trem de Pouso', desc: 'Recolhe/estende. Recolha imediatamente após decolar.', essential: true },
@@ -269,32 +271,117 @@ Por ser um mod comunitário e não um módulo oficial, pode parar de funcionar c
       { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + .', action: 'Trim Nariz Acima', desc: '', essential: false },
       { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + ;', action: 'Trim Nariz Abaixo', desc: '', essential: false },
       { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'LAlt + 3', action: 'AP Voo Nivelado', desc: 'Botão do pânico — retorna ao voo reto e nivelado imediatamente.', essential: false },
-      // Radar / IRST (base Su-33/Su-27)
-      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'I', action: 'Ligar/Desligar Radar', desc: 'Ativa o radar do Su-30. Mesma tecla do Su-27 — ligue ao entrar em zona de combate.', essential: true },
-      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'O', action: 'Ligar/Desligar IRST', desc: 'Sensor IR passivo — detecta alvos sem emitir radar. Inimigo não recebe aviso no RWR.', essential: true },
-      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '5', action: 'Modo HMS (Helmet Sight)', desc: 'Mira do capacete. Olhe para o inimigo — o sistema trava automaticamente. Use com R-73.', essential: true },
+      // Radar / IRST
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'I', action: 'Ligar/Desligar Radar', desc: 'Ativa o radar do Su-30 via cockpit ou hotkey. Ligue ao entrar em zona de combate.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'O', action: 'Ligar/Desligar IRST (OLS)', desc: 'Sensor IR passivo — detecta alvos sem emitir radar. Exclusivo do Su-30, não presente em todos os FC.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '5', action: 'Modo HMS (Helmet Sight)', desc: 'Mira do capacete. Olhe para o inimigo — o radar/IRST trava automaticamente. Use com R-73.', essential: true },
       { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '4', action: 'Modo BVR (Longo Alcance)', desc: 'Modo principal para R-77M e R-27. Rastreia alvos em distâncias maiores.', essential: false },
-      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '2', action: 'Modo BFR (Dogfight)', desc: 'Varredura vertical para combate próximo.', essential: false },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '2', action: 'Modo BFR (Dogfight)', desc: 'Varredura vertical automática para combate próximo.', essential: false },
       { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '; . , /', action: 'Mover Cursor Radar/IRST', desc: 'Direciona a zona de varredura para onde você espera os alvos.', essential: false },
-      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'Enter', action: 'Travar Alvo', desc: 'Trava radar/IRST no contato selecionado.', essential: true },
-      // Armas AA (base Su-33)
-      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'P', action: 'Ciclar Armas Ar-Ar', desc: 'Alterna entre R-77M, R-27ER, R-27ET, R-73 etc. Igual ao Su-27 — é P, não D!', essential: true },
-      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'Space', action: 'Disparar Míssil AA', desc: 'Lança o míssil selecionado.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'Enter', action: 'Travar Alvo', desc: 'Trava radar/IRST no contato selecionado para engajamento.', essential: true },
+      // Armas AA
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'Botão A/A no UFCP', action: 'Ativar Modo Ar-Ar', desc: 'O Su-30 tem cockpit clicável — o switch AA/AG fica no UFCP (painel frontal). Clique no botão A/A para modo ar-ar. Pode variar conforme versão do mod.', essential: true },
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'P', action: 'Ciclar Armas Ar-Ar', desc: 'Alterna entre R-77M, R-27ER, R-27ET, R-73 etc. Herdado do Su-27/Su-33 base.', essential: true },
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'Space', action: 'Disparar Míssil AA', desc: 'Lança o míssil ar-ar selecionado.', essential: true },
       { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'C', action: 'Selecionar Canhão', desc: 'Ativa o canhão GSh-30-1 em modo ar-ar.', essential: false },
-      // Armas AG (base Su-25T via CWS)
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '7', action: 'Modo Ar-Terra', desc: 'Ativa modo AG e o sistema Shkval/TGP do CWS. ESSENCIAL antes de qualquer ataque ao solo.', essential: true },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'O', action: 'Ligar Shkval / TGP', desc: 'Ativa a câmera de targeting. No CWS funciona como targeting pod — use para identificar e travar alvos terrestres.', essential: true },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Enter', action: 'Travar Alvo AG / Estabilização', desc: 'Trava o TGP no alvo. No CWS, também inicia o modo de estabilização para alimentar coordenadas GPS em armas guiadas.', essential: true },
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'LAlt + Space', action: 'Launch Permission Override', desc: 'Necessário para lançar alguns mísseis BVR (R-77M, anti-radar) quando o sistema não autoriza automaticamente.', essential: false },
+      // Armas AG (CWS)
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Botão A/G no UFCP', action: 'Ativar Modo Ar-Terra', desc: 'Clique no botão A/G no UFCP do cockpit para entrar em modo ar-terra. Alternativamente a tecla 7 pode funcionar dependendo da versão.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '7', action: 'Modo AG (alternativo)', desc: 'Tecla de atalho para modo ar-terra. Funciona em algumas versões do mod como alternativa ao UFCP clicável.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'O', action: 'Ligar TGP / Shkval', desc: 'Ativa o Targeting Pod (câmera de mira). No CWS funciona como o Shkval do Su-25T — encontre e trave o alvo.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '; . , /', action: 'Mover TGP', desc: 'Move a câmera do targeting pod para encontrar alvos terrestres.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Enter', action: 'Travar Alvo / Estabilizar TGP', desc: 'Trava o TGP no alvo. No CWS também inicia modo de estabilização para alimentar coordenadas GPS em armas guiadas.', essential: true },
       { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'D', action: 'Ciclar Armas AG', desc: 'Alterna entre as armas ar-terra disponíveis no pylon selecionado.', essential: true },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Space', action: 'Disparar / Lançar Arma AG', desc: 'Dispara míssil ou lança bomba. Para armas GPS/INS, use Launch Permission Override antes.', essential: true },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'RAlt + Space', action: 'Launch Permission Override', desc: 'Necessário para lançar armas GPS/INS e anti-radar no CWS quando os parâmetros de lançamento não aparecem corretamente.', essential: false },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'I', action: 'Modo ELINT (SEAD)', desc: 'Ativa o sistema de detecção de radar para missões SEAD. Alvos de radar aparecem como diamantes no HUD. Use com Kh-31P.', essential: false },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '; . , /', action: 'Mover TGP / Shkval', desc: 'Move a câmera de targeting para apontar ao alvo terrestre.', essential: false },
-      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Ctrl + W', action: 'Ejetar Armamentos', desc: 'Joga fora armas externas em emergência.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Space', action: 'Lançar Arma AG', desc: 'Dispara míssil ou lança bomba. Para armas GPS/INS use Launch Permission Override antes.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'LAlt + Space', action: 'Launch Permission Override', desc: 'Essencial para lançar armas GPS, INS e anti-radar no CWS quando os parâmetros não aparecem corretamente no HUD.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'I', action: 'Modo ELINT (SEAD)', desc: 'Ativa detecção de radar para SEAD. Radares inimigos aparecem como diamantes no HUD. Use com Kh-31P.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Ctrl + W', action: 'Ejetar Armamentos', desc: 'Emergency jettison das armas externas.', essential: false },
       // Contramédidas
       { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Insert', action: 'Lançar Chaff', desc: 'Contra mísseis guiados por radar (AIM-120, R-27R inimigo).', essential: true },
       { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Delete', action: 'Lançar Flares', desc: 'Contra mísseis infravermelhos (AIM-9, R-73 inimigo).', essential: true },
-      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Shift + E', action: 'Jammer IR Traseiro', desc: 'Interferência IR no hemisfério traseiro. Combine com flares.', essential: false },
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Shift + E', action: 'Jammer IR Traseiro', desc: 'Interferência IR no hemisfério traseiro. Combine com flares e manobra evasiva.', essential: false },
+    ]
+  },
+
+  a4e: {
+    id: 'a4e',
+    name: 'A-4E Skyhawk',
+    nation: 'EUA / US Navy',
+    flag: '🇺🇸',
+    role: 'Ataque ao Solo / CAS Naval',
+    era: 'Guerra Fria — Vietnam (1956–)',
+    speed: '~1.077 km/h (Mach 0.9)',
+    engine: '1x Pratt & Whitney J52-P-8A (8.500 lbf)',
+    color: '#ffaa00',
+    tag: 'MOD GRATUITO',
+    briefing_real: `O Douglas A-4 Skyhawk, carinhosamente apelidado de "Scooter" pelos pilotos americanos, foi um dos maiores paradoxos da aviação militar: um avião pequeno, barato e simples que se tornou um dos mais versáteis e duradouros da Guerra Fria. Projetado por Ed Heinemann em apenas dois anos nos anos 1950, o A-4 pesava metade do peso máximo especificado pela Marinha americana — e ainda assim superou todas as expectativas.
+
+O Skyhawk foi a espinha dorsal da aviação naval americana no Vietnam, participando de inúmeras missões de ataque ao solo, supressão de defesas aéreas e até combate ar-ar contra MiGs. Ficou famoso pela campanha das Malvinas em 1982, onde pilotos argentinos com A-4s afundaram três navios britânicos com bombas convencionais — em condições extremamente adversas.
+
+O A-4 foi operado por EUA, Israel, Austrália, Argentina, Brasil, Cingapura e outros 12 países. A Marinha do Brasil operou o A-4 Skyhawk no NAe São Paulo até 2001. Com mais de 2.960 unidades produzidas e décadas de serviço em conflitos reais, o Scooter é um dos maiores legados da aviação de ataque do século XX.`,
+    briefing_dcs: `O A-4E-C é amplamente considerado o melhor mod comunitário já feito para o DCS World — e muitos veteranos o colocam acima de vários módulos pagos em qualidade. É um módulo full-fidelity completo: cockpit totalmente clicável, sistemas simulados com precisão histórica, radar de ataque ao solo, computador de bombardeio CP-741/A, e reabastecimento aéreo (um dos únicos mods com essa capacidade).
+
+Por ser full-fidelity, a curva de aprendizado é maior que os Flaming Cliffs. Mas a equipe comunidade desenvolveu um manual completo acessível via kneeboard no jogo (K), tornando o aprendizado muito mais acessível. O A-4E-C é ideal para quem quer aprender CAS naval, SEAD com AGM-45 Shrike, e operações de porta-aviões sem pagar por um módulo oficial.
+
+Atenção: requer download separado do GitHub oficial. Não distribua o mod — é política da equipe desenvolvedora.`,
+    weapons: [
+      // AA
+      { cat: 'Ar-Ar', name: 'AIM-9J / AIM-9P3 Sidewinder', sub: 'Autodefesa IR', guidance: 'Infravermelho', range: '~18 km', main: false, ff: true, desc: 'Mísseis de calor para autodefesa. Disponíveis nos pylons internos e externos. Lembre-se: o Scooter é um bombardeiro — AIM-9s são para emergência, não ofensiva.' },
+      // SEAD
+      { cat: 'SEAD', name: 'AGM-45B Shrike', sub: 'Míssil anti-radar', guidance: 'Anti-Radar (Passivo)', range: '~25-40 km', main: true, ff: true, desc: 'A arma mais única do A-4E no DCS. Busca e ataca radares emissores automaticamente. Na versão 2.3 você pode selecionar o tipo de seeker antes do voo (LShift+1/2/4/5 por estação). Extremamente eficaz contra SAMs em modo SEAD/IRONHAND.' },
+      // Bombas guiadas
+      { cat: 'Guiado AG', name: 'AGM-62 Walleye I / II', sub: 'Bomba guiada TV', guidance: 'TV — Fogo e Esqueça', range: '~20 km', main: true, ff: true, desc: 'Bomba planante guiada por TV — uma das primeiras armas "smart" americanas. Trave o alvo na TV antes do lançamento e ela guia sozinha. O A-4E é uma das poucas aeronaves do DCS que pode usar o Walleye.' },
+      // Bombas livres
+      { cat: 'Bombas', name: 'Mk-81 / Mk-82 / Mk-83 / Mk-84', sub: 'Série Mk-80 propósito geral', guidance: 'Livre', range: '—', main: true, ff: false, desc: 'A família completa de bombas americanas de 250 a 2.000 lb. O A-4E pode carregar mais de 6.000 lb de Mk-82 com racks MER/TER. Disponível em versões retardadas (AIR Ballute) para ataques a baixa altitude.' },
+      { cat: 'Bombas', name: 'AN-M30 / AN-M57 / AN-M64 / AN-M65', sub: 'Bombas WWII (ainda explodem!)', guidance: 'Livre', range: '—', main: false, ff: false, desc: 'Munições remanescentes da Segunda Guerra Mundial disponíveis no loadout. Funcionam como bombas convencionais — curiosidade histórica com uso real em missões de área.' },
+      { cat: 'Bombas', name: 'Mk-20 Rockeye', sub: 'Bomba cluster antitanque', guidance: 'Livre (Cluster)', range: '—', main: false, ff: false, desc: 'Bomba cluster com 247 submunições HEAT antitanque. Eficaz contra concentrações de blindados e veículos. Disponível em configurações simples ou múltiplas com racks MER.' },
+      { cat: 'Bombas', name: 'CBU-1/A e CBU-2/A', sub: 'Dispensers de bomblets', guidance: 'Livre (Cluster)', range: '—', main: false, ff: false, desc: 'Dispensers de submunições que saturam áreas com dezenas de bomblets. Eficazes contra tropas, veículos leves e equipamentos ao ar livre. Atenção: lançar 40+ bomblets pode causar queda de FPS.' },
+      // Foguetes
+      { cat: 'Foguetes', name: 'Zuni (LAU-10) — 4x 127mm', sub: 'Foguete pesado naval', guidance: 'Não guiado', range: '~6 km', main: false, ff: false, desc: 'Foguetes Zuni de 127mm em pods de 4 unidades. Alta velocidade e poder destrutivo. Favoritos da US Navy e USMC para CAS próximo. Opção mais potente que os Hydras.' },
+      { cat: 'Foguetes', name: 'Hydra 70 (LAU-3/LAU-68)', sub: '19x ou 7x foguetes 70mm', guidance: 'Não guiado', range: '~4 km', main: false, ff: false, desc: 'Foguetes de 70mm em pods de 7 ou 19 unidades. Múltiplas variantes: HE, HEAT, WP (fósforo branco), iluminação e fumaça. Versáteis para supressão e marcação de alvos.' },
+      // Canhão
+      { cat: 'Canhão', name: '2x Mk-12 20mm (interno)', sub: 'Canhões internos', guidance: '—', range: '< 1,5 km', main: false, ff: false, desc: 'Dois canhões Mk-12 de 20mm com 200 projéteis cada (400 total) embutidos na raiz das asas. Eficazes contra alvos leves, embarcações pequenas e helicópteros em combate próximo.' },
+      { cat: 'Canhão', name: 'Mk-4 HIPEG Gun Pod (20mm)', sub: 'Pod de canhão externo', guidance: '—', range: '< 1,5 km', main: false, ff: false, desc: 'Pod de canhão adicional de 20mm para aumentar cadência de fogo. Montado nos pylons — aumenta a capacidade antitanque leve e anti-pessoal em passes rasantes.' },
+      // Especial
+      { cat: 'Especial', name: 'Reabastecimento Aéreo', sub: 'Drogue & probe', guidance: '—', range: '—', main: true, ff: false, desc: 'O A-4E-C é um dos únicos mods do DCS com reabastecimento aéreo funcional. Use os comandos de rádio (LShift+\\) para solicitar um tanker ao AWACS e pratique o engate no cone. Aumenta dramaticamente o raio de ação em missões longas.' },
+      { cat: 'Especial', name: 'CP-741/A Bombing Computer', sub: 'Computador de bombardeio radar', guidance: 'Radar CCRP', range: '—', main: false, ff: false, desc: 'Sistema exclusivo do A-4E — use o radar de ataque para designar o alvo, ative o computador e mantenha a climb suave. Quando soar o tom, as bombas são liberadas automaticamente no ponto correto. Único no DCS para essa era.' },
+    ],
+    hotkeys: [
+      // Inicialização
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + Home', action: 'Ligar Motor (J52)', desc: 'Liga o motor turbojato único. Aguarde o RPM estabilizar antes de prosseguir.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + L', action: 'Ligar Sistemas Elétricos', desc: 'Liga painéis elétricos e aviônica.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'LCtrl + W', action: 'Freio de Roda Esquerdo', desc: 'O A-4E não tem steering de nariz — usa frenagem diferencial para guiar no solo.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'LAlt + W', action: 'Freio de Roda Direito', desc: 'Frenagem diferencial direita. Essencial para manobrar no solo sem nose wheel steering.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'LCtrl + J', action: 'Ejetar Armamentos (Jettison)', desc: 'Ejecta todas as armas em emergência. Antigo atalho do A-4E-C.', essential: false },
+      // Voo
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'G', action: 'Trem de Pouso', desc: 'Recolhe/estende. Essencial para operações de porta-aviões — recolha imediatamente após o catapulta.', essential: true },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'F', action: 'Flaps', desc: 'Cicla posições. Use flap completo para apresamento no porta-aviões (aprox. 250 km/h em final).', essential: true },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'B', action: 'Freio Aerodinâmico / Spoilers', desc: 'Abre spoilers para reduzir velocidade rapidamente.', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'H', action: 'Gancho de Apresamento', desc: 'Baixa/recolhe o gancho para pousos em porta-aviões. Essencial para operações navais.', essential: true },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'U', action: 'Dobrar Asas', desc: 'Dobra/estende as asas para operações em convés de porta-aviões.', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + .', action: 'Trim Nariz Acima', desc: '', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + ;', action: 'Trim Nariz Abaixo', desc: '', essential: false },
+      // Radar e sistemas
+      { cat: 'radar', catLabel: 'Radar / Nav', catIcon: '📡', keys: 'K', action: 'Abrir Kneeboard Manual', desc: 'Abre o manual completo do A-4E-C diretamente no jogo. LEITURA ESSENCIAL para iniciantes — cobre todos os sistemas em detalhes.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / Nav', catIcon: '📡', keys: 'R', action: 'Ligar/Desligar Radar (AN/APG-53A)', desc: 'Ativa o radar de ataque ao solo. Usado para navegação, terrain clearance e como designador para o computador de bombardeio CP-741/A.', essential: false },
+      { cat: 'radar', catLabel: 'Radar / Nav', catIcon: '📡', keys: 'Q', action: 'Modo RHWS (AN/APR-25)', desc: 'Radar Homing & Warning System — detecta radar inimigo via audio. Sem display visual, só som. Essencial para missões SEAD — aprenda a interpretar os tons.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / Nav', catIcon: '📡', keys: 'Num /', action: 'TACAN — Nav Rádio', desc: 'Sistema TACAN para navegação por referência de estações rádio e porta-aviões. Use para encontrar seu caminho de volta ao navio.', essential: false },
+      // Armas
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'Space', action: 'Lançar / Disparar', desc: 'Dispara arma selecionada ou lança bomba no ponto correto. Para bombas com computador CP-741/A, aguarde o tom de lançamento automático.', essential: true },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'D', action: 'Ciclar Armas', desc: 'Alterna entre as armas disponíveis nos pylons.', essential: true },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'LCtrl + Space', action: 'Master Arm ON/OFF', desc: 'Liga/desliga a segurança das armas. Deve estar ON antes de qualquer disparo.', essential: true },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'LShift + 1', action: 'Seeker Head Estação 1 (Shrike)', desc: 'Seleciona o tipo de seeker do AGM-45 na estação 1. Use antes da decolagem. Disponível na v2.3.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'LShift + 2', action: 'Seeker Head Estação 2 (Shrike)', desc: 'Seleciona o tipo de seeker do AGM-45 na estação 2.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'LShift + 4', action: 'Seeker Head Estação 4 (Shrike)', desc: 'Seleciona o tipo de seeker do AGM-45 na estação 4.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'LShift + 5', action: 'Seeker Head Estação 5 (Shrike)', desc: 'Seleciona o tipo de seeker do AGM-45 na estação 5.', essential: false },
+      { cat: 'weapons', catLabel: 'Armas', catIcon: '💥', keys: 'Ctrl + W', action: 'Ejetar Armamentos', desc: 'Emergency jettison de todas as armas externas.', essential: false },
+      // Contramédidas
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Insert', action: 'Lançar Chaff', desc: 'O A-4E tem 30 chaff. Não são automáticos — preste atenção no RHWS (AN/APR-25) e atue manualmente.', essential: true },
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Delete', action: 'Lançar Flares', desc: 'O A-4E tem 30 flares. Use ao detectar lançamento de míssil IR pelo som do RHWS.', essential: true },
+      // Rádio
+      { cat: 'radio', catLabel: 'Rádio / Carrier', catIcon: '📻', keys: '`', action: 'Abrir Menu Rádio', desc: 'Abre o menu de comunicações para chamar AWACS, tanker, JTAC e comandos de porta-aviões.', essential: true },
+      { cat: 'radio', catLabel: 'Rádio / Carrier', catIcon: '📻', keys: 'LShift + \\', action: 'Solicitar Tanker ao AWACS', desc: 'Pergunta ao AWACS qual tanker está disponível para reabastecimento. O A-4E-C é um dos únicos mods com AAR funcional.', essential: false },
+      { cat: 'radio', catLabel: 'Rádio / Carrier', catIcon: '📻', keys: 'F1–F12', action: 'Opções de Rádio', desc: 'Seleciona opções no menu de rádio — comunicações com AWACS, LSO (Landing Signal Officer), torre e outros.', essential: false },
     ]
   }
 }
