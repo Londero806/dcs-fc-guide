@@ -206,5 +206,95 @@ O Su-25T também pode fazer SEAD com o Kh-58 — destruindo radares SAM de até 
       { cat: 'autopilot', catLabel: 'Autopiloto', catIcon: '🤖', keys: 'LAlt + 3', action: 'AP Voo Nivelado', desc: 'Botão do pânico — retorna ao voo reto e nivelado.', essential: true },
       { cat: 'autopilot', catLabel: 'Autopiloto', catIcon: '🤖', keys: 'LAlt + 9', action: 'Desligar Autopiloto', desc: 'Desativa qualquer modo AP. Sempre desative antes de manobrar.', essential: false },
     ]
+  },
+
+  su30: {
+    id: 'su30',
+    name: 'Su-30 Flanker-C/H',
+    nation: 'Russia / Export',
+    flag: '🇷🇺',
+    role: 'Caça Multifunção Biplace',
+    era: 'Pós-Guerra Fria / Moderno',
+    speed: 'Mach 2.0 (~2.120 km/h)',
+    engine: '2x Saturn AL-31FL/FP com vetorização de empuxo',
+    color: '#c97aff',
+    tag: 'MOD GRATUITO',
+    briefing_real: `O Su-30 é o filho mais ambicioso do Su-27 — um caça biplace de longo alcance que conseguiu algo raro: ser ao mesmo tempo um interceptor de superioridade aérea e uma plataforma de ataque ao solo de precisão. Desenvolvido a partir do Su-27UB (versão de treinamento duplo), o Su-30 ganhou aviônica avançada, radar de phased array, vetorização de empuxo e canards que o tornam supermanobráveis mesmo com cargas pesadas.
+
+O maior sucesso da família é o Su-30MKI indiano, que em 2004 durante o exercício Cope India venceu 90% das missões de combate simulado contra F-15C americanos — embora os parâmetros favorecessem os indianos. O modelo brasileiro da família é o MKI, que a FAB cogitou adquirir antes de optar pelo Gripen.
+
+Com mais de 635 unidades produzidas e operado por mais de 13 países incluindo Índia, China, Malásia, Argélia e Venezuela, o Su-30 é hoje o espinha dorsal de várias forças aéreas ao redor do mundo.`,
+    briefing_dcs: `No DCS, o Su-30 é um mod gratuito desenvolvido pela equipe Codename Flanker. É tecnicamente o avião mais completo desta lista — combina ar-ar do Su-33 com ar-terra do Su-25T em uma única aeronave, com cockpit clicável e dois lugares.
+
+O mod usa o modelo de voo do Su-33 para ar-ar e o sistema Shkval do Su-25T para ar-terra. Com o DLC CWS (Custom Weapon System, também gratuito) você tem acesso a uma enorme variedade de armas, incluindo o míssil supersônico BrahMos, o R-77M de radar ativo e o Kh-31 anti-radar.
+
+Por ser um mod comunitário e não um módulo oficial, pode parar de funcionar com atualizações do DCS. Requer Su-25T (gratuito) + Su-33 ou Flaming Cliffs instalados. Para multiplayer, o servidor também precisa ter o mod ativo.`,
+    weapons: [
+      // BVR
+      { cat: 'BVR', name: 'R-77M (AA-12 Adder)', sub: 'Míssil BVR radar ativo', guidance: 'Radar Ativo — Fogo e Esqueça', range: '~110 km', main: true, ff: true, desc: 'Versão modernizada do R-77 com radar ativo — equivalente ao AIM-120 AMRAAM. Fogo e esqueça: dispare e manobre para o próximo alvo. Grande upgrade em relação ao R-27 do Su-27 original.' },
+      { cat: 'BVR', name: 'R-27ER / R-27R', sub: 'BVR radar semi-ativo', guidance: 'Radar Semi-ativo', range: '~80 km / ~45 km', main: false, ff: false, desc: 'Mísseis herdados da família Su-27. Exigem radar travado até o impacto. Ainda carregados como complemento ao R-77M em cargas mistas.' },
+      { cat: 'BVR', name: 'R-27ET / R-27T', sub: 'BVR infravermelho', guidance: 'Infravermelho', range: '~80 km / ~40 km', main: false, ff: true, desc: 'Versão IR do R-27 — ataque silencioso sem alertar o RWR do inimigo. Combine com IRST para engajamento completamente passivo.' },
+      // WVR
+      { cat: 'WVR', name: 'R-73 Archer', sub: 'Dogfight principal', guidance: 'IR HOBS', range: '~30 km', main: true, ff: true, desc: 'Alta manobralidade + HMS. Olhe para o inimigo e dispare sem apontar o nariz. A combinação mais letal em combate visual próximo.' },
+      { cat: 'WVR', name: 'Astra Mk1', sub: 'Míssil BVR indiano', guidance: 'Radar Ativo', range: '~80 km', main: false, ff: true, desc: 'Míssil ar-ar de radar ativo desenvolvido pela Índia para o Su-30MKI. Disponível no mod CWS como armamento de exportação exótico.' },
+      // Canhão
+      { cat: 'Canhão', name: 'GSh-30-1', sub: 'Canhão interno 30mm', guidance: '—', range: '< 1 km', main: false, ff: false, desc: 'Canhão de 30mm no bordo direito da asa. 150 projéteis. Mais destrutivo por projétil que o Vulcan americano de 20mm.' },
+      // AG guiado
+      { cat: 'Guiado AG', name: 'BrahMos', sub: 'Míssil supersônico de cruzeiro', guidance: 'Inercial + GPS + Ativo', range: '~290 km', main: true, ff: true, desc: 'O armamento mais poderoso do mod. Míssil de cruzeiro supersônico (Mach 3) desenvolvido por Índia e Rússia. Uma única unidade pode destruir instalações navais ou terrestres de grande porte. Requer CWS.' },
+      { cat: 'Guiado AG', name: 'Kh-31P / Kh-31PD', sub: 'Anti-radar SEAD', guidance: 'Anti-Radar — Fogo e Esqueça', range: '~110 km / ~180 km', main: true, ff: true, desc: 'Míssil supersônico anti-radar. Muito mais rápido que o Kh-58 do Su-25T — difícil de interceptar. O PD é a versão de alcance estendido. Essencial para SEAD no Su-30.' },
+      { cat: 'Guiado AG', name: 'Kh-29T / Kh-29L', sub: 'Míssil pesado ar-terra', guidance: 'TV / Laser Semi-ativo', range: '~10 km', main: false, ff: true, desc: 'Míssil pesado para alvos fixos. Versão T é fogo e esqueça (TV). Versão L exige laser no alvo. Operados via sistema Shkval em modo AG.' },
+      { cat: 'Guiado AG', name: 'Kh-35', sub: 'Míssil anti-navio', guidance: 'Inercial + Radar Ativo', range: '~130 km', main: false, ff: true, desc: 'Míssil anti-navio subsônico similar ao Harpoon americano. Voa rente ao mar para evitar detecção. Disponível no mod CWS para missões navais.' },
+      { cat: 'Guiado AG', name: 'Kh-38MLE', sub: 'Míssil modular laser/GPS', guidance: 'Laser / GPS', range: '~40 km', main: false, ff: true, desc: 'Míssil moderno de precisão com cabeça de guia laser ou GPS. Mais versátil que o Kh-29. Disponível no mod CWS.' },
+      { cat: 'Guiado AG', name: 'Kh-59', sub: 'Míssil de cruzeiro tático', guidance: 'TV + Inercial', range: '~115 km', main: false, ff: true, desc: 'Míssil de cruzeiro tático de longo alcance para ataques a alvos fixos de alto valor. Guia por TV na fase terminal.' },
+      // Bombas guiadas
+      { cat: 'Bombas Guiadas', name: 'KAB-500L / KAB-500Kr', sub: 'Bomba guiada 500kg', guidance: 'Laser / TV', range: '—', main: false, ff: true, desc: 'Bomba de 500kg guiada por laser ou TV. A versão Kr é fogo e esqueça. Operadas via Shkval em modo AG.' },
+      { cat: 'Bombas Guiadas', name: 'KAB-1500LG-PR', sub: 'Bomba penetradora guiada 1500kg', guidance: 'Laser', range: '—', main: false, ff: false, desc: 'Bomba pesada penetradora de 1500kg com guia laser. Para destruir instalações subterrâneas, bunkers profundos e estruturas fortemente reforçadas.' },
+      { cat: 'Bombas Guiadas', name: 'GBU-12 / GBU-16 / GBU-24', sub: 'Bombas Paveway laser-guiadas', guidance: 'Laser (Paveway)', range: '—', main: false, ff: false, desc: 'Família de bombas guiadas americanas disponível em variantes de exportação via mod CWS. Requer JTAC ou auto-lase externo para funcionar no DCS.' },
+      // Bombas livres
+      { cat: 'Bombas', name: 'FAB-250 / FAB-500', sub: 'Bombas propósito geral', guidance: 'Livre', range: '—', main: false, ff: false, desc: 'Bombas não guiadas de 250 e 500kg para destruição de área. O Su-30 pode carregar até 8 FAB-500 em configuração bomba pura.' },
+      { cat: 'Bombas', name: 'RBK-250 / RBK-500', sub: 'Bombas cluster', guidance: 'Livre', range: '—', main: false, ff: false, desc: 'Bombas cluster com submunições antitanque PTAB. Eficazes contra concentrações de veículos e equipamentos militares em campo aberto.' },
+    ],
+    hotkeys: [
+      // Inicialização
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RShift + L', action: 'Ligar Energia / APU', desc: 'Primeiro passo — liga os sistemas elétricos. Idêntico ao Su-27.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RAlt + Home', action: 'Ligar Motor Esquerdo', desc: 'Liga o motor esquerdo.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RCtrl + Home', action: 'Ligar Motor Direito', desc: 'Liga o motor direito.', essential: true },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'Ctrl + C', action: 'Fechar Canopy', desc: 'Feche antes de taxiar.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'W', action: 'Freio de Roda', desc: 'Segure para manter parado no solo.', essential: false },
+      { cat: 'startup', catLabel: 'Inicialização', catIcon: '🔧', keys: 'RAlt + R', action: 'Ejetar Tanques Externos', desc: 'Descarte antes do combate para maximizar performance.', essential: false },
+      // Voo
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'G', action: 'Trem de Pouso', desc: 'Recolhe/estende. Recolha imediatamente após decolar.', essential: true },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'F', action: 'Flaps', desc: 'Cicla entre posições de decolagem e pouso.', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'B', action: 'Freio Aerodinâmico', desc: 'Reduz velocidade. O Su-30 retém energia em curvas — use para perder velocidade antes do pouso.', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + .', action: 'Trim Nariz Acima', desc: '', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'RCtrl + ;', action: 'Trim Nariz Abaixo', desc: '', essential: false },
+      { cat: 'flight', catLabel: 'Voo', catIcon: '✈️', keys: 'LAlt + 3', action: 'AP Voo Nivelado', desc: 'Botão do pânico — retorna ao voo reto e nivelado imediatamente.', essential: false },
+      // Radar / IRST (base Su-33/Su-27)
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'I', action: 'Ligar/Desligar Radar', desc: 'Ativa o radar do Su-30. Mesma tecla do Su-27 — ligue ao entrar em zona de combate.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'O', action: 'Ligar/Desligar IRST', desc: 'Sensor IR passivo — detecta alvos sem emitir radar. Inimigo não recebe aviso no RWR.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '5', action: 'Modo HMS (Helmet Sight)', desc: 'Mira do capacete. Olhe para o inimigo — o sistema trava automaticamente. Use com R-73.', essential: true },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '4', action: 'Modo BVR (Longo Alcance)', desc: 'Modo principal para R-77M e R-27. Rastreia alvos em distâncias maiores.', essential: false },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '2', action: 'Modo BFR (Dogfight)', desc: 'Varredura vertical para combate próximo.', essential: false },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: '; . , /', action: 'Mover Cursor Radar/IRST', desc: 'Direciona a zona de varredura para onde você espera os alvos.', essential: false },
+      { cat: 'radar', catLabel: 'Radar / IRST', catIcon: '📡', keys: 'Enter', action: 'Travar Alvo', desc: 'Trava radar/IRST no contato selecionado.', essential: true },
+      // Armas AA (base Su-33)
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'P', action: 'Ciclar Armas Ar-Ar', desc: 'Alterna entre R-77M, R-27ER, R-27ET, R-73 etc. Igual ao Su-27 — é P, não D!', essential: true },
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'Space', action: 'Disparar Míssil AA', desc: 'Lança o míssil selecionado.', essential: true },
+      { cat: 'weapons_aa', catLabel: 'Armas AA', catIcon: '💥', keys: 'C', action: 'Selecionar Canhão', desc: 'Ativa o canhão GSh-30-1 em modo ar-ar.', essential: false },
+      // Armas AG (base Su-25T via CWS)
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '7', action: 'Modo Ar-Terra', desc: 'Ativa modo AG e o sistema Shkval/TGP do CWS. ESSENCIAL antes de qualquer ataque ao solo.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'O', action: 'Ligar Shkval / TGP', desc: 'Ativa a câmera de targeting. No CWS funciona como targeting pod — use para identificar e travar alvos terrestres.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Enter', action: 'Travar Alvo AG / Estabilização', desc: 'Trava o TGP no alvo. No CWS, também inicia o modo de estabilização para alimentar coordenadas GPS em armas guiadas.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'D', action: 'Ciclar Armas AG', desc: 'Alterna entre as armas ar-terra disponíveis no pylon selecionado.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Space', action: 'Disparar / Lançar Arma AG', desc: 'Dispara míssil ou lança bomba. Para armas GPS/INS, use Launch Permission Override antes.', essential: true },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'RAlt + Space', action: 'Launch Permission Override', desc: 'Necessário para lançar armas GPS/INS e anti-radar no CWS quando os parâmetros de lançamento não aparecem corretamente.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'I', action: 'Modo ELINT (SEAD)', desc: 'Ativa o sistema de detecção de radar para missões SEAD. Alvos de radar aparecem como diamantes no HUD. Use com Kh-31P.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: '; . , /', action: 'Mover TGP / Shkval', desc: 'Move a câmera de targeting para apontar ao alvo terrestre.', essential: false },
+      { cat: 'weapons_ag', catLabel: 'Armas AG (CWS)', catIcon: '🎯', keys: 'Ctrl + W', action: 'Ejetar Armamentos', desc: 'Joga fora armas externas em emergência.', essential: false },
+      // Contramédidas
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Insert', action: 'Lançar Chaff', desc: 'Contra mísseis guiados por radar (AIM-120, R-27R inimigo).', essential: true },
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Delete', action: 'Lançar Flares', desc: 'Contra mísseis infravermelhos (AIM-9, R-73 inimigo).', essential: true },
+      { cat: 'cm', catLabel: 'Contramédidas', catIcon: '🛡️', keys: 'Shift + E', action: 'Jammer IR Traseiro', desc: 'Interferência IR no hemisfério traseiro. Combine com flares.', essential: false },
+    ]
   }
 }
