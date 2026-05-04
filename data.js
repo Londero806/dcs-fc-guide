@@ -706,4 +706,205 @@ O fluxo de trabalho é via CDU e MFDs coloridos. Aprenda a página DSMS para ger
       { cat: `radio`, catLabel: `Radio / JTAC`, catIcon: `📻`, keys: `\``, action: `Menu de radio / JTAC`, desc: `Acessa comunicações com JTAC, AWACS. O A-10C II tem Link 16 para coordenação em tempo real com forças terrestres.`, essential: true },
     ],
   }
+  ,
+
+  mig21bis: {
+    id: `mig21bis`,
+    name: `MiG-21bis Fishbed`,
+    nation: `URSS / Export`,
+    flag: `🇷🇺`,
+    role: `Interceptor / Caça Multifunção`,
+    era: `Guerra Fria / Vietnam (1959–)`,
+    speed: `Mach 2.05 (~2.175 km/h)`,
+    engine: `1x Tumansky R-25-300 (16.865 lbf com afterburner)`,
+    color: `#ff6b35`,
+    tag: `MODULO PAGO`,
+    briefing_real: `O Mikoyan MiG-21 é o caça supersônico mais produzido da história — com mais de 11.000 unidades construídas e operado por mais de 50 países. Apelidado de 'Kalashnikov dos céus', o MiG-21 combinou o que a URSS fazia de melhor: simplicidade brutal, velocidade extrema e manutenção ridiculamente fácil.
+
+Entrou em serviço em 1959 e batizou fogo no Vietnam, onde causou enormes dores de cabeça para os F-4 Phantom americanos, apesar de ser tecnologicamente inferior. A tática era simples: usar a velocidade e agilidade em alta altitude para engajamentos rápidos, depois desaparecer. A variante 'bis' (a versão do DCS) é a mais avançada produzida — com o motor R-25 de emergência que produz ~100 kN em Mach 1 por até 3 minutos, radar Sapfir melhorado e capacidade all-weather.
+
+O MiG-21 ainda está em serviço ativo em vários países em 2025, mais de 65 anos após seu primeiro voo.`,
+    briefing_dcs: `No DCS, o MiG-21bis é desenvolvido pela Leatherneck Simulations (Magnitude 3) e é um dos módulos mais impressionantes e únicos do jogo — o lead programmer era um piloto ativo de MiG-21 quando o módulo foi desenvolvido.
+
+Voar o Fishbed é uma experiência completamente diferente de qualquer avião americano moderno: sem FBW, sem computador de armas avançado, com um cockpit soviético denso e procedimentos rigorosos. O motor R-25 tem um modo de emergência que aumenta drasticamente o empuxo, mas pode danificar o motor permanentemente se usado por mais de 3 minutos. O radar Sapfir é notoriamente 'difícil' — limitado e com muitos quirks que precisam ser dominados.
+
+O MiG-21bis é o rivais naturais do A-4E Skyhawk e do F-86F no DCS, representando a guerra do Vietnam e a Guerra Fria dos anos 1960-70. Para quem gosta de aviação histórica e de um desafio real de pilotagem, é único.`,
+    weapons: [
+      { cat: `BVR/WVR`, name: `R-3R (AA-2 Atoll radar)`, sub: `Míssil radar semi-ativo`, guidance: `Radar Semi-ativo (SARH)`, range: `~8 km`, main: false, ff: false, desc: `Versão radar do Atoll — clone soviético do AIM-9B com guia radar. Alcance muito limitado e baixa manobrabilidade. Exige radar travado no alvo. Raramente mais eficaz que o R-3S.` },
+      { cat: `WVR`, name: `R-3S (AA-2 Atoll IR)`, sub: `Míssil IR traseiro clone do AIM-9B`, guidance: `Infravermelho (traseiro)`, range: `~8 km`, main: false, ff: true, desc: `Clone soviético do AIM-9B americano. Seeker de infravermelho traseiro apenas — precisa ficar atrás do alvo. Muito sensível a contramedidas e ao sol. Arma da era Vietnam.` },
+      { cat: `WVR`, name: `R-13M / R-13M1 (AA-2 Atoll aprimorado)`, sub: `Míssil IR traseiro melhorado`, guidance: `Infravermelho (traseiro)`, range: `~8 km`, main: false, ff: true, desc: `Versão melhorada do R-3S com maior tolerância a G e melhor resistência a contramedidas. Ainda traseiro apenas, mas mais confiável.` },
+      { cat: `WVR`, name: `R-60 / R-60M (AA-8 Aphid)`, sub: `Míssil IR leve todos os aspectos`, guidance: `Infravermelho (todos os aspectos)`, range: `~8 km`, main: true, ff: true, desc: `O melhor míssil AA do MiG-21bis. O R-60M tem seeker de todos os aspectos — pode engajar de qualquer ângulo, não apenas de trás. Muito leve e ágil. Limite: pode ser enganado por flares com facilidade.` },
+      { cat: `Canhao`, name: `GSh-23L 23mm (pod GUV-9A)`, sub: `Canhão duplo 23mm — pod externo`, guidance: `—`, range: `~1 km`, main: true, ff: false, desc: `O MiG-21bis NÃO tem canhão interno — apenas o pod externo GUV-9A com o GSh-23L de 23mm e ~200 projéteis. Isso é uma desvantagem séria: usar o pod ocupa um pylon e reduz alcance. Essencial montar o pod para combate próximo.` },
+      { cat: `Guiado AG`, name: `Kh-66 Grom (AS-7 Kerry)`, sub: `Míssil ar-terra beam-riding`, guidance: `Radar beam-riding`, range: `~10 km`, main: true, ff: false, desc: `Principal arma guiada AG do MiG-21bis. Guiado pelo feixe de radar — voa dentro do cone do radar como o Vikhr do Su-25T. Exige manter o radar apontado ao alvo. 100kg warhead. Útil contra alvos de área e instalações.` },
+      { cat: `Foguetes`, name: `S-5M (UB-16 pod) — 16x 57mm`, sub: `Foguetes leves 57mm`, guidance: `Não guiado`, range: `~3 km`, main: false, ff: false, desc: `Pods de foguetes S-5 de 57mm em grupos de 16. Lançamento em salva para saturar área. Menos potentes que os S-8 do Su-25T mas ainda eficazes contra tropas e veículos leves.` },
+      { cat: `Foguetes`, name: `S-24A/B — foguete pesado 240mm`, sub: `Foguete pesado individual`, guidance: `Não guiado`, range: `~4 km`, main: false, ff: false, desc: `Foguete pesado de 240mm. Considerado pela comunidade como a melhor arma AG prática do MiG-21bis por combinar alcance razoável com precisão aceitável. 2 pares disponíveis (4 foguetes total). Muito destrutivo.` },
+      { cat: `Bombas`, name: `FAB-100 / FAB-250 / FAB-500`, sub: `Bombas propósito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `Família FAB de bombas soviéticas de 100, 250 e 500 kg. Sem computador de bombardeio avançado — exige mergulho com técnica manual. Difícil de usar com precisão no MiG-21.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `Cockpit clicável`, action: `Cold Start completo`, desc: `O MiG-21bis tem cockpit totalmente clicável com procedimentos soviéticos autênticos. A Leatherneck incluiu missões de treinamento completas. Pressione K para kneeboard.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + Home`, action: `Autostart (atalho)`, desc: `Liga o avião automaticamente. Útil para ir direto ao combate.`, essential: false },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `W`, action: `Freio de roda`, desc: `Segure para manter parado.`, essential: false },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `F`, action: `Flaps`, desc: `Cicla posições para decolagem e pouso.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de pouso`, desc: `Recolhe/estende. O MiG-21 decola e pousa muito mais rápido que jatos modernos.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `Afterburner Stage 2`, action: `Modo emergência R-25 (100 kN)`, desc: `CUIDADO: ativa o 2º estágio do afterburner produzindo ~100 kN em Mach 1. Uso limitado a 3 minutos — dano permanente ao motor se exceder. Use apenas em emergência.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `LAlt + 3`, action: `AP Voo Nivelado`, desc: `Retorna ao voo nivelado. Útil ao perder orientação.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `I`, action: `Ligar Radar Sapfir (RP-22SMA)`, desc: `Ativa o radar Sapfir — notoriamente difícil e com muitos quirks. Alcance limitado. Aprenda os modos no kneeboard antes de combate.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `4`, action: `Modo BVR / Médio Alcance`, desc: `Modo principal para R-3R e Kh-66. Rastreamento de alvos em distâncias maiores.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `2`, action: `Modo Vertical Scan (Dogfight)`, desc: `Varredura vertical para combate próximo.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `Enter`, action: `Travar Alvo`, desc: `Trava o radar no contato selecionado.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Master Arm (cockpit)`, action: `Master Arm ON`, desc: `Ative via switch no cockpit. Obrigatório antes de qualquer disparo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar Armas`, desc: `Alterna entre os mísseis, foguetes e pod de canhão disponíveis.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space`, action: `Disparar / Lançar`, desc: `Dispara míssil ou lança foguetes/bombas selecionados.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar Pod Canhão`, desc: `Ativa o pod GUV-9A com GSh-23L. Lembre: o MiG-21 NÃO tem canhão interno — o pod precisa estar equipado.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `7`, action: `Modo Ar-Terra`, desc: `Alterna para modo AG para uso de Kh-66, foguetes e bombas.`, essential: false },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `SPO-10 RWR alerta sobre radares. Lance chaff ao ouvir aviso de radar travado.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra mísseis IR. O MiG-21 é vulnerável a mísseis modernos — reaja rápido.`, essential: true },
+    ],
+  }
+  ,
+
+  mig29a: {
+    id: `mig29a`,
+    name: `MiG-29A Fulcrum`,
+    nation: `URSS / Russia`,
+    flag: `🇷🇺`,
+    role: `Caça de Superioridade Aérea / Interceptor`,
+    era: `Guerra Fria / Moderno (1983–)`,
+    speed: `Mach 2.25 (~2.400 km/h)`,
+    engine: `2x Klimov RD-33 (18.342 lbf com afterburner cada)`,
+    color: `#e84393`,
+    tag: `FLAMING CLIFFS`,
+    briefing_real: `O Mikoyan MiG-29 Fulcrum foi a resposta soviética direta ao F-16 americano — um caça de superioridade aérea leve para defender o espaço aéreo de fronteira. Projetado para decolar de bases avançadas próximas ao front, o MiG-29 recebeu motores robustos que funcionam mesmo com detritos na pista, e uma filosofia de manutenção simplificada para suportar operações em condições precárias.
+
+Mas o que distingue o Fulcrum é seu sistema de armas: o IRST (sensor de busca infravermelha passivo) permite detectar alvos sem emitir radar, e o capacete HMS combinado com o R-73 Archer cria uma das combinações de dogfight mais letais já produzidas. O piloto literalmente olha para o inimigo e o míssil busca o calor.
+
+Operado por 39 forças aéreas, o MiG-29 foi a surpresa da Alemanha Reunificada — a Luftwaffe herdou os MiG-29 da Alemanha Oriental e ficou impressionada com suas capacidades em dogfight, especialmente em alta altitude e baixa velocidade.`,
+    briefing_dcs: `No DCS, o MiG-29A é a versão Flaming Cliffs — cockpit simplificado, controlado por hotkeys. É ligeiramente inferior ao Su-27 em BVR por não ter o R-77 (apenas R-27 semi-ativo), mas o HMS + R-73 o torna devastador em dogfight visual. Também tem o IRST passivo para ataques silenciosos.
+
+O MiG-29A é menor e mais ágil que o Su-27, com melhor relação empuxo/peso em baixa velocidade. Em combate próximo é um dos aviões mais perigosos do DCS — a combinação de alta AoA, HMS e R-73 permite engajamentos em ângulos que nenhum avião ocidental consegue replicar sem o AIM-9X.
+
+Ponto fraco: autonomia limitada. O MiG-29 foi projetado para missões curtas de defesa de área — com tanque cheio tem apenas ~30 minutos de combate. Sem R-77, em BVR o piloto precisa manter radar travado no alvo com o R-27, enquanto o F-15C já está engajando o próximo.`,
+    weapons: [
+      { cat: `BVR`, name: `R-27R / R-27ER (AA-10 Alamo radar)`, sub: `BVR semi-ativo`, guidance: `Radar Semi-ativo`, range: `~45 km / ~80 km`, main: true, ff: false, desc: `Principal arma BVR do MiG-29A. Exige radar travado no alvo até o impacto — desvantagem vs AMRAAM. O ER é a versão estendida com maior alcance e velocidade.` },
+      { cat: `BVR`, name: `R-27T / R-27ET (AA-10 Alamo IR)`, sub: `BVR infravermelho passivo`, guidance: `Infravermelho`, range: `~40 km / ~70 km`, main: false, ff: true, desc: `Versão IR do R-27 — ataque silencioso sem alertar o RWR inimigo. Combine com IRST para engajamento completamente passivo. ET é a versão estendida.` },
+      { cat: `WVR`, name: `R-73 Archer (AA-11)`, sub: `Rei do dogfight + HMS`, guidance: `IR HOBS`, range: `~30 km`, main: true, ff: true, desc: `Combinado com o HMS, você olha para o inimigo e dispara — sem precisar apontar o nariz. Alta manobrabilidade, pode engajar a 45° fora do eixo. A arma mais letal do MiG-29 em combate visual.` },
+      { cat: `WVR`, name: `R-60M (AA-8 Aphid)`, sub: `IR todos os aspectos — leve`, guidance: `Infravermelho`, range: `~8 km`, main: false, ff: true, desc: `Míssil leve de todos os aspectos para combate muito próximo. Menos potente que o R-73 mas pode ser disparado em G alto e ângulos extremos.` },
+      { cat: `Canhao`, name: `GSh-30-1 30mm`, sub: `Canhão interno 150 projéteis`, guidance: `—`, range: `< 1 km`, main: false, ff: false, desc: `Canhão interno de 30mm com 150 projéteis. Mais destrutivo por projétil que o Vulcan americano de 20mm. Selecione com C em modo AA.` },
+      { cat: `AG (secundário)`, name: `FAB-100 / FAB-250 / FAB-500`, sub: `Bombas propósito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `O MiG-29A pode carregar bombas mas sem sistemas de mira avançados. Capacidade secundária e imprecisa.` },
+      { cat: `AG (secundário)`, name: `S-8 (B-8M1) — pods foguetes 70mm`, sub: `Foguetes 70mm em pods de 20`, guidance: `Não guiado`, range: `~4 km`, main: false, ff: false, desc: `Pods de foguetes S-8 de 70mm para ataque ao solo básico. Sem computador de mira — uso limitado.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + L`, action: `Ligar Energia / APU`, desc: `Primeiro passo — idêntico ao Su-27.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RAlt + Home`, action: `Ligar Motor Esquerdo`, desc: `Liga o motor RD-33 esquerdo.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RCtrl + Home`, action: `Ligar Motor Direito`, desc: `Liga o motor RD-33 direito.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `W`, action: `Freio de Roda`, desc: `Segure para manter parado.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de Pouso`, desc: `Recolhe/estende.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `F`, action: `Flaps`, desc: `Cicla posições para decolagem e pouso.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio Aerodinâmico`, desc: `Reduz velocidade. O MiG-29 retém bem a energia em curvas.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `RAlt + R`, action: `Ejetar Tanques Externos`, desc: `Descarte antes do combate. Com os tanques cheios a autonomia ainda é limitada.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `LAlt + 3`, action: `AP Voo Nivelado`, desc: `Botão do pânico — retorna ao voo nivelado.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `I`, action: `Ligar/Desligar Radar (N019)`, desc: `Ativa o radar do MiG-29. Pulse-Doppler lookdown-shootdown. Ligue ao entrar em combate.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `O`, action: `Ligar/Desligar IRST (OLS-29)`, desc: `Sensor IR passivo — detecta alvos sem emitir radar. Inimigo não recebe aviso no RWR. Essencial para emboscadas silenciosas.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `5`, action: `Modo HMS (Helmet Sight)`, desc: `Ativa mira do capacete. Olhe para o inimigo — radar/IRST trava automaticamente. Use com R-73.`, essential: true },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `4`, action: `Modo BVR (Longo Alcance)`, desc: `Modo principal para R-27. Rastreia alvos em distâncias maiores.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `2`, action: `Modo BFR (Dogfight Vertical)`, desc: `Varredura vertical automática para combate próximo.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `6`, action: `Modo Longitudinal (Próximo)`, desc: `Trava no contato mais próximo à frente. Para engajamentos de curto alcance.`, essential: false },
+      { cat: `radar`, catLabel: `Radar / IRST`, catIcon: `📡`, keys: `Enter`, action: `Travar Alvo`, desc: `Trava radar/IRST no contato selecionado.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `P`, action: `Ciclar Armas AA`, desc: `Alterna entre R-27R, R-27ER, R-27T, R-27ET e R-73. É P, não D como no F-15C!`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space`, action: `Disparar Míssil`, desc: `Lança o míssil AA selecionado.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar Canhão`, desc: `Ativa o GSh-30-1 em modo AA.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `7`, action: `Modo Ar-Terra`, desc: `Alterna para modo AG para bombas e foguetes. Uso secundário.`, essential: false },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Insert`, action: `Chaff`, desc: `Contra mísseis radar (AMRAAM, R-27R inimigo).`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Delete`, action: `Flares`, desc: `Contra mísseis IR (AIM-9, R-73 inimigo).`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `Shift + E`, action: `Jammer IR Traseiro`, desc: `Interferência IR no hemisfério traseiro. Combine com flares.`, essential: false },
+    ],
+  }
+  ,
+
+  f86f: {
+    id: `f86f`,
+    name: `F-86F Sabre`,
+    nation: `EUA / USAF`,
+    flag: `🇺🇸`,
+    role: `Caça Interceptor da Guerra da Coreia`,
+    era: `Guerra da Coreia (1950–1953)`,
+    speed: `~1.107 km/h (Mach 0.9 em nível)`,
+    engine: `1x GE J47-GE-27 (5.970 lbf)`,
+    color: `#87ceeb`,
+    tag: `FLAMING CLIFFS 2024`,
+    briefing_real: `O North American F-86 Sabre é o caça que definiu a era dos jatos na aviação militar americana. Desenvolvido com dados capturados da pesquisa alemã sobre asas em flecha ao final da Segunda Guerra Mundial, o Sabre introduziu uma asa com 35° de flecha que permitia performance supersônica em mergulho — revolucionário para a época.
+
+O Sabre tornou-se lendário na Guerra da Coreia (1950-1953), onde travou os primeiros combates aéreos jet-vs-jet da história contra o MiG-15 soviético sobre o 'MiG Alley' — uma faixa de território perto do Rio Yalu. Os pilotos americanos afirmam índice de kills de 10:1 contra MiGs, embora historiadores modernos estimem algo mais próximo de 1.3:1 após revisão dos dados. O debate continua até hoje.
+
+Após a Coreia, o F-86 foi exportado para mais de 30 países e continuou em serviço por décadas. A Força Aérea Brasileira operou o F-86 de 1956 a 1980.`,
+    briefing_dcs: `No DCS, o F-86F é a versão Flaming Cliffs 2024 — cockpit simplificado, controlado por hotkeys. É uma experiência completamente diferente de qualquer avião moderno: sem mísseis guiados modernos (os AIM-9B disponíveis são quase inúteis em combate), você depende quase exclusivamente das seis metralhadoras de .50 cal.
+
+Voar o Sabre no DCS é aprender dogfight da forma mais pura possível: gerenciar energia, usar a vantagem de altitude, prever os movimentos do inimigo e fechar para um burst certeiro com o Mk.18 gunsight. Nenhum míssil, nenhuma HUD, nenhum sistema de guia — apenas pilotagem, tática e pontaria.
+
+O rival natural é o MiG-15bis, e existem servidores dedicados a recriar o MiG Alley. A comunidade que voa o Sabre é pequena mas apaixonada.`,
+    weapons: [
+      { cat: `Canhão`, name: `6x Colt-Browning M3 (.50 cal / 12.7mm)`, sub: `Seis metralhadoras pesadas internas`, guidance: `—`, range: `~1.200 m`, main: true, ff: false, desc: `A arma principal do Sabre — seis metralhadoras pesadas de .50 caliber com 300 projéteis cada (1.800 total). Cadência de 1.100 disparos/min por arma. Com a mira APG-30 de ranging por radar, é devastador em burst curto certeiro. A comunidade diz que é mais eficaz contra alvos no solo que no ar.` },
+      { cat: `AA`, name: `AIM-9B Sidewinder`, sub: `Míssil IR primitivo — uso limitado`, guidance: `Infravermelho (traseiro apenas)`, range: `~5 km`, main: false, ff: true, desc: `Versão mais primitiva do Sidewinder. Praticamente inútil contra qualquer alvo em manobra — melhor para bombardeiros grandes em linha reta. Facilmente enganado por flares e pelo sol. Mais um item histórico que uma arma confiável.` },
+      { cat: `AG (secundário)`, name: `HVAR — Foguete 5 polegadas`, sub: `High Velocity Aircraft Rocket — até 16x`, guidance: `Não guiado`, range: `~2 km`, main: false, ff: false, desc: `O F-86F pode carregar até 16 foguetes HVAR de 5 polegadas para ataques ao solo. Com a mira de ranging por radar, são mais precisos que se imagina. A comunidade prefere os foguetes às bombas neste avião.` },
+      { cat: `AG (secundário)`, name: `AN-M64 500 lb / M117 750 lb`, sub: `Bombas propósito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `Bombas não guiadas para ataque ao solo. Difíceis de usar com precisão — exigem mergulho em ângulo exato (45°) e timing perfeito. A comunidade unânime: os foguetes HVAR são superiores neste avião.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + L`, action: `Ligar Energia`, desc: `Liga os sistemas elétricos.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + Home`, action: `Ligar Motor (J47)`, desc: `Liga o motor turbojato único GE J47.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `W`, action: `Freio de Roda`, desc: `Segure para manter parado.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de Pouso`, desc: `Recolhe/estende. Recolha após decolar.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `F`, action: `Flaps`, desc: `Cicla posições. Use para decolagem e pouso. Sem flaps em combate.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio Aerodinâmico (Airbrake)`, desc: `Reduz velocidade. Essencial para não ultrapassar o alvo em passes de ataque.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `RAlt + R`, action: `Ejetar Tanques Externos`, desc: `Descarte antes do combate.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar Metralhadoras .50 cal`, desc: `Ativa as 6 metralhadoras Colt-Browning M3. Principal arma do Sabre.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space`, action: `Disparar`, desc: `Dispara a arma selecionada. Para as metralhadoras, burst curto de 0.5-1 segundo é mais eficaz que disparo contínuo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar Armas`, desc: `Alterna entre metralhadoras, AIM-9B e foguetes/bombas.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `APG-30 (radar ranging)`, action: `Mira com Ranging Radar`, desc: `A mira APG-30 usa radar para calcular a distância ao alvo automaticamente, ajustando o gunsight. Posicione o pipper no alvo e dispare quando o ranging estiver estável.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `—`, action: `Sem Contramédidas Eletrônicas`, desc: `O F-86F não tem chaff, flares ou RWR. Sua única defesa é a pilotagem — manobras evasivas e consciência situacional. Era 1950.`, essential: false },
+    ],
+  }
+  ,
+
+  mig15bis: {
+    id: `mig15bis`,
+    name: `MiG-15bis Fagot`,
+    nation: `URSS`,
+    flag: `🇷🇺`,
+    role: `Caça Interceptor da Guerra da Coreia`,
+    era: `Guerra da Coreia (1950–1953)`,
+    speed: `~1.076 km/h (Mach 0.93)`,
+    engine: `1x Klimov VK-1 (5.950 kgf) — derivado do Rolls-Royce Nene`,
+    color: `#cc3333`,
+    tag: `FLAMING CLIFFS 2024`,
+    briefing_real: `O Mikoyan MiG-15 foi o choque mais brutal da Guerra Fria para a aviação ocidental. Quando ele apareceu sobre a Coreia em novembro de 1950, destruiu B-29 Superfortresses americanos quase sem esforço — o bombardeiro mais avançado do mundo era caça para o novo jato soviético. Os pilotos americanos de hélice e F-80 ficaram completamente impotentes.
+
+O mais irônico da história: o motor do MiG-15 era um derivado do Rolls-Royce Nene britânico — que a Grã-Bretanha vendeu para a URSS em 1946 em um gesto de boa vontade pós-guerra. Os soviéticos o copiaram imediatamente, e o resultado foi um dos caças mais avançados do início dos anos 1950.
+
+O MiG-15bis (versão 'bis' = melhorada) foi o auge da linha, com motor VK-1 mais potente e armamento melhorado. Operado por URSS, China, Coreia do Norte e dezenas de outros países, foi o caça soviético mais produzido da história com mais de 18.000 unidades.`,
+    briefing_dcs: `No DCS, o MiG-15bis é a versão Flaming Cliffs 2024 — cockpit simplificado por hotkeys. Assim como o F-86F, é pura pilotagem: sem mísseis guiados modernos, você depende do canhão e da tática.
+
+A diferença do Sabre: o MiG-15 é armado com um canhão N-37 de 37mm e dois NR-23 de 23mm — ogivas muito mais destrutivas que as metralhadoras .50 cal do F-86. Um hit certeiro do N-37 destrói qualquer avião. A desvantagem: baixíssima cadência de fogo e poucos projéteis — cada burst precisa contar.
+
+O MiG-15bis tem melhor teto de serviço e taxa de subida que o F-86F, mas pior manobrabilidade em baixas altitudes e velocidades. A tática soviética favorecia ataques de mergulho em alta altitude, enquanto os pilotos americanos preferiam o combate de giro em altitudes médias.
+
+O rival natural é o F-86F Sabre — e o MiG Alley nos servidores históricos é onde essa rivalidade continua viva.`,
+    weapons: [
+      { cat: `Canhão`, name: `N-37D 37mm (1 canhão, 40 projéteis)`, sub: `Canhão pesado de alto impacto`, guidance: `—`, range: `~800 m`, main: true, ff: false, desc: `O canhão mais destrutivo dos dois rivais da Coreia. Um hit do 37mm destrói qualquer aeronave instantaneamente. A desvantagem: apenas 40 projéteis e cadência muito baixa. Cada disparo precisa ser contado. Use para finalizar alvos já danificados.` },
+      { cat: `Canhão`, name: `2x NR-23 23mm (80 projéteis cada, 160 total)`, sub: `Dois canhões médios sincronizados`, guidance: `—`, range: `~1 km`, main: true, ff: false, desc: `Dois canhões de 23mm com cadência maior que o N-37. Na prática, a comunidade usa os NR-23 para abrir o alvo e o N-37 para o tiro final. 160 projéteis de 23mm + 40 de 37mm = arsenal muito limitado. Precisão é tudo.` },
+      { cat: `AG (secundário)`, name: `Bombas FAB-100 / FAB-250`, sub: `Bombas propósito geral`, guidance: `Livre`, range: `—`, main: false, ff: false, desc: `O MiG-15 pode carregar até 2 bombas de 100 ou 250 kg para ataque ao solo. Sem computador de mira — uso histórico para ataques de oportunidade. Raramente usado pelos pilotos do DCS.` },
+    ],
+    hotkeys: [
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + L`, action: `Ligar Energia`, desc: `Liga os sistemas elétricos.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `RShift + Home`, action: `Ligar Motor (VK-1)`, desc: `Liga o motor Klimov VK-1 derivado do Rolls-Royce Nene.`, essential: true },
+      { cat: `startup`, catLabel: `Inicialização`, catIcon: `🔧`, keys: `W`, action: `Freio de Roda`, desc: `Segure para manter parado.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `G`, action: `Trem de Pouso`, desc: `Recolhe/estende.`, essential: true },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `F`, action: `Flaps`, desc: `Cicla posições.`, essential: false },
+      { cat: `flight`, catLabel: `Voo`, catIcon: `✈️`, keys: `B`, action: `Freio Aerodinâmico`, desc: `Essencial para controle de velocidade — especialmente em mergulhos a alta velocidade.`, essential: false },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `C`, action: `Selecionar Canhão N-37 (37mm)`, desc: `Ativa o canhão N-37 de 37mm. Use para o tiro final — apenas 40 projéteis.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `D`, action: `Ciclar / Selecionar NR-23 (23mm)`, desc: `Alterna para os dois canhões NR-23 de 23mm. Cadência maior, mais projéteis. Use para abrir o alvo.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `Space`, action: `Disparar Canhão Selecionado`, desc: `Dispara os canhões selecionados. Burst curto e certeiro — os projéteis acabam rápido.`, essential: true },
+      { cat: `weapons`, catLabel: `Armas`, catIcon: `💥`, keys: `ASP-3N (mira óptica)`, action: `Mira Óptica Giroscópica`, desc: `O MiG-15 usa a mira ASP-3N giroscópica — analógica, sem ranging radar. Posicione o pipper no alvo com deflexão manual. Muito mais difícil que a APG-30 do Sabre.`, essential: true },
+      { cat: `cm`, catLabel: `Contramédidas`, catIcon: `🛡️`, keys: `—`, action: `Sem Contramédidas Eletrônicas`, desc: `O MiG-15bis não tem chaff, flares ou RWR — igual ao F-86F. Era 1950. Sua única defesa é a pilotagem e a consciência situacional.`, essential: false },
+    ],
+  }
 }
